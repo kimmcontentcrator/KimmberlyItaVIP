@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 240 10% 4%;
+        --foreground: 30 20% 96%;
+        --card: 240 10% 7%;
+        --card-foreground: 30 20% 96%;
+        --popover: 240 10% 7%;
+        --popover-foreground: 30 20% 96%;
+        --primary: 42 58% 60%;
+        --primary-foreground: 240 10% 6%;
+        --secondary: 240 8% 12%;
+        --secondary-foreground: 30 20% 96%;
+        --muted: 240 8% 12%;
+        --muted-foreground: 30 10% 72%;
+        --accent: 350 45% 86%;
+        --accent-foreground: 240 10% 6%;
+        --destructive: 0 70% 45%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 42 30% 20%;
+        --input: 240 8% 16%;
+        --ring: 42 58% 60%;
+        --radius: 0.9rem;
+
+        --gold: #d6b25e;
+        --gold-deep: #b8923b;
+        --gold-light: #f1d998;
+        --blush: #f2d7d0;
+        --rose: #e7b8c8;
+        --rose-gold: #b77a86;
+        --ink: #0b0b0d;
+        --velvet: #111114;
+        --surface-1: #141418;
+        --surface-2: #1a1a20;
+        --border-subtle: rgba(214, 178, 94, 0.18);
+        --glow-gold: 0 0 0 1px rgba(214, 178, 94, 0.22), 0 0 32px rgba(214, 178, 94, 0.14);
+        --glow-blush: 0 0 0 1px rgba(242, 215, 208, 0.16), 0 0 30px rgba(231, 184, 200, 0.14);
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html {
+        background: #0b0b0d;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+    ::selection {
+        background: rgba(231, 184, 200, 0.35);
+        color: #fff;
+    }
+}
+
+.font-display {
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Gold gradient text (logo only) */
+.text-gold-sheen {
+    background: linear-gradient(100deg, #b8923b 0%, #f1d998 28%, #d6b25e 45%, #f2d7d0 62%, #d6b25e 80%, #b8923b 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: sheen 7s ease-in-out infinite;
+}
+@keyframes sheen {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Grain overlay */
+.grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    transform: translateZ(0);
+}
+@keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-3%, 2%); }
+    50% { transform: translate(2%, -3%); }
+    75% { transform: translate(-2%, -1%); }
+}
+
+.dot-glow {
+    width: 8px; height: 8px; border-radius: 999px;
+    background: var(--gold);
+    box-shadow: 0 0 0 4px rgba(214, 178, 94, 0.12), 0 0 18px rgba(214, 178, 94, 0.7);
+    animation: pulse-dot 2.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(214, 178, 94, 0.12), 0 0 18px rgba(214, 178, 94, 0.7); }
+    50% { box-shadow: 0 0 0 7px rgba(214, 178, 94, 0.05), 0 0 26px rgba(214, 178, 94, 0.9); }
+}
+
+.lux-card {
+    background: linear-gradient(180deg, rgba(26, 26, 32, 0.92), rgba(17, 17, 20, 0.96));
+    border: 1px solid var(--border-subtle);
+    border-radius: 22px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.lux-card:hover {
+    border-color: rgba(214, 178, 94, 0.4);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55), 0 0 36px rgba(214, 178, 94, 0.1);
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, #f1d998 0%, #d6b25e 45%, #b8923b 100%);
+    color: #141014;
+    box-shadow: 0 10px 30px rgba(214, 178, 94, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: box-shadow 0.35s ease, filter 0.35s ease;
+}
+.btn-gold:hover {
+    box-shadow: 0 14px 44px rgba(214, 178, 94, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    filter: brightness(1.05);
+}
+.btn-ghost-lux {
+    background: rgba(20, 20, 24, 0.85);
+    border: 1px solid rgba(242, 215, 208, 0.28);
+    color: #f5f2ee;
+    transition: border-color 0.35s ease, background-color 0.35s ease, color 0.35s ease;
+}
+.btn-ghost-lux:hover {
+    border-color: rgba(231, 184, 200, 0.7);
+    background: rgba(231, 184, 200, 0.1);
+    color: #fff;
+}
+
+/* Marquee */
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+}
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+}
+.floaty { animation: floaty 2.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track, .grain::after, .text-gold-sheen, .floaty, .dot-glow { animation: none !important; }
+}
+
+/* Ken Burns hero */
+.kenburns { animation: kenburns 24s ease-in-out infinite alternate; transform-origin: 40% 35%; }
+@keyframes kenburns {
+    from { transform: scale(1) translate3d(0, 0, 0); }
+    to { transform: scale(1.09) translate3d(-1.5%, 1%, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .kenburns { animation: none; } }
+
+/* Performance: layer GPU per immagini sfocate e card */
+.gpu { transform: translateZ(0); backface-visibility: hidden; contain: paint; }
+img { -webkit-user-drag: none; }
+@media (max-width: 1023px) {
+    .backdrop-blur, .backdrop-blur-xl { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+}
+
+/* Modalità modifica */
+.kv-editable {
+    cursor: text;
+    outline: 1px dashed rgba(214, 178, 94, 0.7);
+    outline-offset: 3px;
+    border-radius: 4px;
+    transition: outline-color 0.2s ease, background-color 0.2s ease;
+}
+.kv-editable:hover { outline: 2px solid #f2d7d0; background-color: rgba(231, 184, 200, 0.08); }
