@@ -1,0 +1,34 @@
+[
+  {
+    "content": "Backend cassa: pricing.py + payments.py + server.py (ordini, settings, watcher, TON Connect) — COMPLETATO e smoke test PASS",
+    "status": "completed"
+  },
+  {
+    "content": "ATTESA ALLEGATI: foto nuove + immagine stile censura (partire appena arrivano)",
+    "status": "in_progress"
+  },
+  {
+    "content": "Palette: oro → azzurro #00AFF0, rosa cipria per scritte/badge (token CSS, componenti)",
+    "status": "pending"
+  },
+  {
+    "content": "Griglia foto censurate (stile dall'allegato) + componente CensoredPhoto",
+    "status": "pending"
+  },
+  {
+    "content": "Home Preview A (/?home=a o /preview-a): foto + piani, resto in pagine separate (/faq, /regole, /contatti, /come-funziona)",
+    "status": "pending"
+  },
+  {
+    "content": "Home Preview B: foto → piani/pacchetti → resto compatto",
+    "status": "pending"
+  },
+  {
+    "content": "Frontend cassa: /cassa, /ordine/:code, /admin/ordini, /admin/pagamenti, AccountSheet acquisti + Paga ora, CTA → cassa",
+    "status": "pending"
+  },
+  {
+    "content": "Build check, screenshot desktop+mobile, testing agent, fix",
+    "status": "pending"
+  }
+]
