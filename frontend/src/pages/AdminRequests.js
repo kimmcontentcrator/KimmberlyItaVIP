@@ -25,7 +25,7 @@ const STATUSES = [
 ];
 const S_STYLE = {
   nuova: "text-[color:var(--blush)] border-[rgba(242,215,208,0.35)]",
-  in_lavorazione: "text-[color:var(--gold-light)] border-[rgba(214,178,94,0.45)]",
+  in_lavorazione: "text-[color:var(--gold-light)] border-[rgba(0,175,240,0.45)]",
   completata: "text-[#9fe0b5] border-[rgba(159,224,181,0.4)]",
   rifiutata: "text-[#8a847d] border-[rgba(138,132,125,0.4)]",
 };
@@ -133,7 +133,7 @@ export default function AdminRequests() {
 
   return (
     <div className="min-h-screen bg-[#0b0b0d] text-[#f5f2ee]" data-testid="admin-requests-page">
-      <header className="sticky top-0 z-30 border-b border-[rgba(214,178,94,0.14)] bg-[#0b0b0d]/95 backdrop-blur">
+      <header className="sticky top-0 z-30 border-b border-[rgba(0,175,240,0.14)] bg-[#0b0b0d]/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
           <Link to="/" className="flex items-baseline gap-2" data-testid="admin-home-link">
             <span className="text-gold-sheen font-display text-2xl italic">{BRAND.short}</span>
@@ -181,13 +181,13 @@ export default function AdminRequests() {
             <div className="lux-card mt-6 hidden overflow-hidden md:block">
               <Table data-testid="admin-requests-table">
                 <TableHeader>
-                  <TableRow className="border-[rgba(214,178,94,0.14)] hover:bg-transparent">
+                  <TableRow className="border-[rgba(0,175,240,0.14)] hover:bg-transparent">
                     {["Data", "Nome", "Richiesta", "Canale", "Prezzo", "Stato"].map((h) => <TableHead key={h} className="text-[10px] uppercase tracking-[0.18em] text-[#b9b2aa]">{h}</TableHead>)}
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {rows.map((r) => (
-                    <TableRow key={r.id} data-testid="admin-requests-row" onClick={() => open(r)} className="cursor-pointer border-[rgba(214,178,94,0.08)] hover:bg-[#141418]">
+                    <TableRow key={r.id} data-testid="admin-requests-row" onClick={() => open(r)} className="cursor-pointer border-[rgba(0,175,240,0.08)] hover:bg-[#141418]">
                       <TableCell className="whitespace-nowrap text-xs text-[#b9b2aa]">{fmtDate(r.created_at)}</TableCell>
                       <TableCell className="text-sm">{r.name || "—"}{r.fan_username && <span className="ml-1 text-xs text-[color:var(--gold)]">@{r.fan_username}</span>}</TableCell>
                       <TableCell className="max-w-[260px] truncate text-sm">{r.item || tLabel(r.request_type)}</TableCell>
@@ -219,7 +219,7 @@ export default function AdminRequests() {
       </main>
 
       <Sheet open={!!sel} onOpenChange={(o) => !o && setSel(null)}>
-        <SheetContent side="right" data-testid="admin-request-detail" className="w-full overflow-y-auto border-l border-[rgba(214,178,94,0.18)] bg-[#0b0b0d] p-6 text-[#f5f2ee] sm:max-w-lg">
+        <SheetContent side="right" data-testid="admin-request-detail" className="w-full overflow-y-auto border-l border-[rgba(0,175,240,0.18)] bg-[#0b0b0d] p-6 text-[#f5f2ee] sm:max-w-lg">
           {sel && (
             <>
               <SheetTitle className="font-display text-3xl font-normal italic text-[#f5f2ee]">{sel.item || tLabel(sel.request_type)}</SheetTitle>
@@ -232,14 +232,14 @@ export default function AdminRequests() {
                   ["Tipo", tLabel(sel.request_type)],
                   ["Prezzo / budget", sel.item_price != null ? fmtEur(sel.item_price) : sel.budget || "—"],
                 ].map(([k, v]) => (
-                  <div key={k} className="rounded-xl border border-[rgba(214,178,94,0.12)] bg-[#111114] p-3">
+                  <div key={k} className="rounded-xl border border-[rgba(0,175,240,0.12)] bg-[#111114] p-3">
                     <dt className="text-[10px] uppercase tracking-[0.18em] text-[#b9b2aa]">{k}</dt>
                     <dd className="mt-1 text-[#f5f2ee]">{v}</dd>
                   </div>
                 ))}
               </dl>
 
-              <div className="mt-3 flex items-center justify-between gap-2 rounded-xl border border-[rgba(231,184,200,0.25)] bg-[#141016] p-3">
+              <div className="mt-3 flex items-center justify-between gap-2 rounded-xl border border-[rgba(231,184,200,0.25)] bg-[#101418] p-3">
                 <div>
                   <div className="text-[10px] uppercase tracking-[0.18em] text-[color:var(--blush)]">{chLabel(sel.contact_channel)}</div>
                   <div className="text-sm" data-testid="admin-detail-contact">{sel.contact_handle}</div>
@@ -252,7 +252,7 @@ export default function AdminRequests() {
 
               <div className="mt-5">
                 <div className="text-[10px] uppercase tracking-[0.18em] text-[#b9b2aa]">Messaggio</div>
-                <p className="mt-2 whitespace-pre-wrap rounded-xl border border-[rgba(214,178,94,0.12)] bg-[#111114] p-4 text-sm leading-relaxed" data-testid="admin-detail-description">{sel.description}</p>
+                <p className="mt-2 whitespace-pre-wrap rounded-xl border border-[rgba(0,175,240,0.12)] bg-[#111114] p-4 text-sm leading-relaxed" data-testid="admin-detail-description">{sel.description}</p>
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-3">
@@ -260,7 +260,7 @@ export default function AdminRequests() {
                   <div className="text-[10px] uppercase tracking-[0.18em] text-[#b9b2aa]">Stato</div>
                   <Select value={edit.status} onValueChange={(v) => setEdit({ ...edit, status: v })}>
                     <SelectTrigger data-testid="admin-request-status-select" className="h-11 rounded-xl border-[rgba(242,215,208,0.16)] bg-[#111114]"><SelectValue /></SelectTrigger>
-                    <SelectContent className="border-[rgba(214,178,94,0.2)] bg-[#141418] text-[#f5f2ee]">
+                    <SelectContent className="border-[rgba(0,175,240,0.2)] bg-[#141418] text-[#f5f2ee]">
                       {STATUSES.filter((s) => s.v !== "tutte").map((s) => <SelectItem key={s.v} value={s.v} data-testid={`admin-status-option-${s.v}`}>{s.l}</SelectItem>)}
                     </SelectContent>
                   </Select>
@@ -284,7 +284,7 @@ export default function AdminRequests() {
                   <AlertDialogTrigger asChild>
                     <button data-testid="admin-delete-button" className="btn-ghost-lux flex items-center justify-center rounded-xl px-4" aria-label="Elimina"><Trash2 className="h-4 w-4" /></button>
                   </AlertDialogTrigger>
-                  <AlertDialogContent className="border-[rgba(214,178,94,0.2)] bg-[#111114] text-[#f5f2ee]">
+                  <AlertDialogContent className="border-[rgba(0,175,240,0.2)] bg-[#111114] text-[#f5f2ee]">
                     <AlertDialogHeader>
                       <AlertDialogTitle>Eliminare questa richiesta?</AlertDialogTitle>
                       <AlertDialogDescription className="text-[#b9b2aa]">L'operazione non si può annullare.</AlertDialogDescription>

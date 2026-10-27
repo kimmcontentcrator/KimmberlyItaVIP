@@ -14,7 +14,7 @@ export const Sparkles = ({ density = 40, className = "" }) => {
     const dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 2);
     let w = 0, h = 0, raf;
 
-    const colors = ["241,217,152", "214,178,94", "242,215,208", "231,184,200"];
+    const colors = ["106,215,255", "0,175,240", "242,215,208", "231,184,200"];
     const sprites = colors.map((c) => {
       const s = document.createElement("canvas");
       s.width = s.height = 32;

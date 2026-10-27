@@ -5,7 +5,7 @@ import { Lock, MessageCircleHeart, ChevronDown } from "lucide-react";
 import { BRAND, PHOTOS } from "../config/site";
 import { Sparkles } from "./Sparkles";
 import { EASE } from "./Reveal";
-import { scrollToId } from "../lib/scroll";
+import { goTo } from "../lib/scroll";
 
 export const ParallaxHero = ({ ready }) => {
   const ref = useRef(null);
@@ -35,7 +35,7 @@ export const ParallaxHero = ({ ready }) => {
       <div className="absolute inset-0 bg-[#0b0b0d]/30" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0d] via-[#0b0b0d]/50 to-[#0b0b0d]/30" />
       <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-[#0b0b0d]/90 via-[#0b0b0d]/40 to-transparent md:w-2/3" />
-      <div className="pointer-events-none absolute -right-20 top-10 h-[420px] w-[420px] rounded-full" style={{ background: "radial-gradient(circle, rgba(214,178,94,0.20), rgba(214,178,94,0) 65%)" }} />
+      <div className="pointer-events-none absolute -right-20 top-10 h-[420px] w-[420px] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,175,240,0.20), rgba(0,175,240,0) 65%)" }} />
       <div className="pointer-events-none absolute -left-24 bottom-24 h-[380px] w-[380px] rounded-full" style={{ background: "radial-gradient(circle, rgba(231,184,200,0.16), rgba(231,184,200,0) 65%)" }} />
       <Sparkles density={45} />
 
@@ -59,14 +59,14 @@ export const ParallaxHero = ({ ready }) => {
         <motion.div {...a(0.55)} className="mt-9 flex flex-col gap-3 sm:flex-row">
           <button
             data-testid="hero-primary-cta"
-            onClick={() => scrollToId("esclusivi")}
+            onClick={() => goTo("esclusivi")}
             className="btn-gold flex items-center justify-center gap-2 rounded-xl px-7 py-4 text-sm font-semibold uppercase tracking-[0.14em]"
           >
             <Lock className="h-4 w-4" /> <E k="hero.cta1">Sblocca i contenuti</E>
           </button>
           <button
             data-testid="hero-secondary-cta"
-            onClick={() => scrollToId("richieste")}
+            onClick={() => goTo("richieste")}
             className="btn-ghost-lux flex items-center justify-center gap-2 rounded-xl px-7 py-4 text-sm uppercase tracking-[0.14em]"
           >
             <MessageCircleHeart className="h-4 w-4" /> <E k="hero.cta2">Richiesta personalizzata</E>
@@ -79,7 +79,7 @@ export const ParallaxHero = ({ ready }) => {
             ["24h", "Risposta"],
             ["VIP", "Su richiesta"],
           ].map(([k, v], i) => (
-            <div key={v} className="rounded-2xl border border-[rgba(214,178,94,0.16)] bg-[#111114]/90 px-4 py-3">
+            <div key={v} className="rounded-2xl border border-[rgba(0,175,240,0.16)] bg-[#111114]/90 px-4 py-3">
               <div className="font-display text-xl text-[color:var(--gold-light)] tabular-nums"><E k={`hero.stat${i}.k`}>{k}</E></div>
               <div className="text-[10px] uppercase tracking-[0.2em] text-[#b9b2aa]"><E k={`hero.stat${i}.v`}>{v}</E></div>
             </div>
@@ -89,7 +89,7 @@ export const ParallaxHero = ({ ready }) => {
 
       <button
         data-testid="hero-scroll-hint"
-        onClick={() => scrollToId("mondo")}
+        onClick={() => goTo("mondo")}
         className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 lg:flex items-center gap-2 rounded-full border border-[rgba(242,215,208,0.2)] bg-[#111114]/80 px-4 py-2 text-[10px] uppercase tracking-[0.3em] text-[#b9b2aa] backdrop-blur"
       >
         Scorri <ChevronDown className="floaty h-3.5 w-3.5 text-[color:var(--gold)]" />

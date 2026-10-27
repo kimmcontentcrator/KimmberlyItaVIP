@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { Menu, Crown, User, Lock } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "./ui/sheet";
-import { scrollToId } from "../lib/scroll";
+import { goTo } from "../lib/scroll";
 import { BRAND } from "../config/site";
 import { useFan } from "../context/FanContext";
 import { usePresence } from "../hooks/usePresence";
 
 export const NAV = [
-  { id: "mondo", label: "Il mio mondo" },
-  { id: "esclusivi", label: "Esclusivi" },
-  { id: "offerte", label: "Offerte" },
+  { id: "foto", label: "Foto" },
+  { id: "offerte", label: "Piani" },
   { id: "cataloghi", label: "Cataloghi" },
   { id: "vault", label: "Vault" },
   { id: "topfan", label: "Top Fan" },
   { id: "richieste", label: "Su richiesta" },
+  { id: "come", label: "Come funziona" },
   { id: "contatti", label: "Contatti" },
 ];
 
@@ -45,14 +45,14 @@ export const Navbar = () => {
 
   const go = (id) => {
     setOpen(false);
-    setTimeout(() => scrollToId(id), 150);
+    setTimeout(() => goTo(id), 150);
   };
 
   return (
     <header
       data-testid="main-navbar"
       className={`fixed left-0 right-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled ? "border-b border-[rgba(214,178,94,0.12)] bg-[#0b0b0d]/90 backdrop-blur-xl" : "bg-gradient-to-b from-[#0b0b0d] to-[#0b0b0d]/0"
+        scrolled ? "border-b border-[rgba(0,175,240,0.12)] bg-[#0b0b0d]/90 backdrop-blur-xl" : "bg-gradient-to-b from-[#0b0b0d] to-[#0b0b0d]/0"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between gap-3 px-5 sm:px-8">
@@ -88,7 +88,7 @@ export const Navbar = () => {
             onClick={() => go("offerte")}
             className="btn-gold hidden items-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] md:flex"
           >
-            <Crown className="h-3.5 w-3.5" /> Entra nella Crew
+            <Crown className="h-3.5 w-3.5" /> Sblocca ora
           </button>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -100,7 +100,7 @@ export const Navbar = () => {
                 <Menu className="h-4 w-4" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" data-lenis-prevent className="w-[85%] overflow-y-auto border-l border-[rgba(214,178,94,0.18)] bg-[#0b0b0d] text-[#f5f2ee]">
+            <SheetContent side="right" data-lenis-prevent className="w-[85%] overflow-y-auto border-l border-[rgba(0,175,240,0.18)] bg-[#0b0b0d] text-[#f5f2ee]">
               <SheetTitle className="text-gold-sheen font-display text-3xl italic">{BRAND.short}</SheetTitle>
               <div className="mt-8 flex flex-col">
                 {NAV.map((n, i) => (
@@ -108,7 +108,7 @@ export const Navbar = () => {
                     key={n.id}
                     data-testid={`mobile-nav-link-${n.id}`}
                     onClick={() => go(n.id)}
-                    className="flex items-center justify-between border-b border-[rgba(214,178,94,0.1)] py-3.5 text-left font-display text-2xl text-[#f5f2ee] transition-colors hover:text-[color:var(--rose)]"
+                    className="flex items-center justify-between border-b border-[rgba(0,175,240,0.1)] py-3.5 text-left font-display text-2xl text-[#f5f2ee] transition-colors hover:text-[color:var(--rose)]"
                   >
                     {n.label}
                     <span className="font-sans text-[10px] tracking-[0.3em] text-[color:var(--gold)]">0{i + 1}</span>
@@ -127,7 +127,7 @@ export const Navbar = () => {
                 onClick={() => go("offerte")}
                 className="btn-gold mt-3 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-semibold uppercase tracking-[0.14em]"
               >
-                <Crown className="h-4 w-4" /> Entra nella Crew
+                <Crown className="h-4 w-4" /> Sblocca ora
               </button>
               <a
                 href="/admin"

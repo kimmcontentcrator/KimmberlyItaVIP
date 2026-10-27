@@ -10,8 +10,8 @@
         --card-foreground: 30 20% 96%;
         --popover: 240 10% 7%;
         --popover-foreground: 30 20% 96%;
-        --primary: 42 58% 60%;
-        --primary-foreground: 240 10% 6%;
+        --primary: 196 100% 47%;
+        --primary-foreground: 240 10% 4%;
         --secondary: 240 8% 12%;
         --secondary-foreground: 30 20% 96%;
         --muted: 240 8% 12%;
@@ -20,14 +20,15 @@
         --accent-foreground: 240 10% 6%;
         --destructive: 0 70% 45%;
         --destructive-foreground: 0 0% 98%;
-        --border: 42 30% 20%;
+        --border: 196 35% 22%;
         --input: 240 8% 16%;
-        --ring: 42 58% 60%;
+        --ring: 196 100% 47%;
         --radius: 0.9rem;
 
-        --gold: #d6b25e;
-        --gold-deep: #b8923b;
-        --gold-light: #f1d998;
+        /* V2: i token 'gold' restano come NOME (usati in ~25 componenti) ma valgono AZZURRO OnlyFans */
+        --gold: #00aff0;
+        --gold-deep: #0089bd;
+        --gold-light: #6ad7ff;
         --blush: #f2d7d0;
         --rose: #e7b8c8;
         --rose-gold: #b77a86;
@@ -35,8 +36,8 @@
         --velvet: #111114;
         --surface-1: #141418;
         --surface-2: #1a1a20;
-        --border-subtle: rgba(214, 178, 94, 0.18);
-        --glow-gold: 0 0 0 1px rgba(214, 178, 94, 0.22), 0 0 32px rgba(214, 178, 94, 0.14);
+        --border-subtle: rgba(0, 175, 240, 0.18);
+        --glow-gold: 0 0 0 1px rgba(0, 175, 240, 0.22), 0 0 32px rgba(0, 175, 240, 0.14);
         --glow-blush: 0 0 0 1px rgba(242, 215, 208, 0.16), 0 0 30px rgba(231, 184, 200, 0.14);
     }
 }
@@ -70,9 +71,9 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-/* Gold gradient text (logo only) */
+/* Brand sheen text (logo only) — azzurro + blush */
 .text-gold-sheen {
-    background: linear-gradient(100deg, #b8923b 0%, #f1d998 28%, #d6b25e 45%, #f2d7d0 62%, #d6b25e 80%, #b8923b 100%);
+    background: linear-gradient(100deg, #0089bd 0%, #6ad7ff 26%, #00aff0 44%, #f2d7d0 62%, #00aff0 80%, #0089bd 100%);
     background-size: 220% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -105,12 +106,12 @@ html.lenis, html.lenis body { height: auto; }
 .dot-glow {
     width: 8px; height: 8px; border-radius: 999px;
     background: var(--gold);
-    box-shadow: 0 0 0 4px rgba(214, 178, 94, 0.12), 0 0 18px rgba(214, 178, 94, 0.7);
+    box-shadow: 0 0 0 4px rgba(0, 175, 240, 0.12), 0 0 18px rgba(0, 175, 240, 0.7);
     animation: pulse-dot 2.4s ease-in-out infinite;
 }
 @keyframes pulse-dot {
-    0%, 100% { box-shadow: 0 0 0 4px rgba(214, 178, 94, 0.12), 0 0 18px rgba(214, 178, 94, 0.7); }
-    50% { box-shadow: 0 0 0 7px rgba(214, 178, 94, 0.05), 0 0 26px rgba(214, 178, 94, 0.9); }
+    0%, 100% { box-shadow: 0 0 0 4px rgba(0, 175, 240, 0.12), 0 0 18px rgba(0, 175, 240, 0.7); }
+    50% { box-shadow: 0 0 0 7px rgba(0, 175, 240, 0.05), 0 0 26px rgba(0, 175, 240, 0.9); }
 }
 
 .lux-card {
@@ -121,18 +122,18 @@ html.lenis, html.lenis body { height: auto; }
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 .lux-card:hover {
-    border-color: rgba(214, 178, 94, 0.4);
-    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55), 0 0 36px rgba(214, 178, 94, 0.1);
+    border-color: rgba(0, 175, 240, 0.4);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55), 0 0 36px rgba(0, 175, 240, 0.1);
 }
 
 .btn-gold {
-    background: linear-gradient(135deg, #f1d998 0%, #d6b25e 45%, #b8923b 100%);
-    color: #141014;
-    box-shadow: 0 10px 30px rgba(214, 178, 94, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, #6ad7ff 0%, #00aff0 46%, #0089bd 100%);
+    color: #0b0b0d;
+    box-shadow: 0 10px 30px rgba(0, 175, 240, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
     transition: box-shadow 0.35s ease, filter 0.35s ease;
 }
 .btn-gold:hover {
-    box-shadow: 0 14px 44px rgba(214, 178, 94, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 14px 44px rgba(0, 175, 240, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     filter: brightness(1.05);
 }
 .btn-ghost-lux {
@@ -186,9 +187,36 @@ img { -webkit-user-drag: none; }
 /* Modalità modifica */
 .kv-editable {
     cursor: text;
-    outline: 1px dashed rgba(214, 178, 94, 0.7);
+    outline: 1px dashed rgba(0, 175, 240, 0.7);
     outline-offset: 3px;
     border-radius: 4px;
     transition: outline-color 0.2s ease, background-color 0.2s ease;
 }
 .kv-editable:hover { outline: 2px solid #f2d7d0; background-color: rgba(231, 184, 200, 0.08); }
+
+/* Foto pixelate: 3 varianti pre-generate in dissolvenza = mosaico che vibra (solo opacity, GPU friendly) */
+.pix-card { contain: paint; transform: translateZ(0); transition: border-color 0.25s ease, box-shadow 0.25s ease; }
+.pix-card:hover { border-color: rgba(0, 175, 240, 0.5); box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6), 0 0 36px rgba(0, 175, 240, 0.16); }
+.pix-img { image-rendering: pixelated; image-rendering: crisp-edges; opacity: 0; animation: pix-cycle 2.7s steps(1, end) infinite; }
+.pix-img-0 { animation-delay: 0s; }
+.pix-img-1 { animation-delay: -0.9s; }
+.pix-img-2 { animation-delay: -1.8s; }
+@keyframes pix-cycle {
+    0%, 33.3% { opacity: 1; }
+    33.4%, 100% { opacity: 0; }
+}
+.pix-shimmer {
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.10) 50%, rgba(255, 255, 255, 0) 65%);
+    background-size: 250% 100%;
+    animation: pix-shimmer 3.6s ease-in-out infinite;
+    mix-blend-mode: soft-light;
+}
+@keyframes pix-shimmer {
+    0% { background-position: 120% 0; }
+    100% { background-position: -120% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .pix-img { animation: none; }
+    .pix-img-0 { opacity: 1; }
+    .pix-shimmer { animation: none; display: none; }
+}

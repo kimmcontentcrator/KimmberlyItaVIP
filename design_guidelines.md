@@ -1,449 +1,430 @@
 {
-  "brand": {
-    "name": "KimmberlyyITAVIP",
-    "language": "it-IT",
-    "positioning": [
-      "Luxury creator club (18+) non-esplicito",
-      "Cinematico, premium, fluido",
-      "Mobile-first, conversion-first"
+  "title": "V2 — Palette azzurra + Home conversion-first",
+  "brand_attributes": [
+    "diretto",
+    "esplicito",
+    "rapido",
+    "reale",
+    "mobile-first",
+    "conversion-first"
+  ],
+  "design_personality": {
+    "north_star": "Mostra subito (pixelato), prezzo chiaro, acquisto in 2–3 tap.",
+    "visual_style": [
+      "dark editorial (sfondo ink)",
+      "accenti OnlyFans blue + blush/rose",
+      "card premium ma non 'lussuoso lento'",
+      "micro-motion breve (120–220ms)"
     ],
-    "tone_of_voice": {
-      "keywords": ["sensuale", "elegante", "riservato", "esclusivo", "diretto"],
-      "copy_rules": [
-        "Frasi brevi, ritmo da trailer.",
-        "Evita slang eccessivo; usa italiano pulito.",
-        "CTA sempre orientate all’azione: ‘Sblocca’, ‘Entra’, ‘Richiedi’, ‘Scrivimi’."
-      ]
-    }
-  },
-
-  "visual_personality": {
-    "style_fusion": [
-      "Cinematic dark intro + glow reveal (stile terpstar.eu)",
-      "Editorial luxury typography (Playfair Display) + UI grotesk moderna (Space Grotesk)",
-      "Card layout premium con bordi sottili oro + blush come luce morbida",
-      "Micro-particelle sparkle e scroll reveal controllati (mai invadenti)"
-    ],
-    "layout_principles": [
-      "Z-pattern in hero (logo/tagline/CTA) + F-pattern nelle sezioni testo.",
-      "Sezioni con: micro-label uppercase + dot luminoso + headline grande uppercase.",
-      "Molto respiro: padding verticali ampi, cards non troppo dense.",
-      "Niente centrature globali: testo allineato a sinistra, CTA raggruppate."
+    "anti_goals": [
+      "niente sezioni narrative lunghe",
+      "niente layout centrati tipo brochure",
+      "niente gradienti scuri saturi",
+      "niente effetti pesanti (backdrop-blur su mobile)"
     ]
   },
-
-  "design_tokens": {
-    "css_custom_properties": {
-      "notes": [
-        "Aggiornare /app/frontend/src/index.css in :root e .dark con questi token (HSL consigliato per shadcn).",
-        "Impostare tema di default in dark (aggiungere class 'dark' su html/body o root app).",
-        "Non usare gradienti scuri saturi; gradienti solo come overlay decorativo in hero (<=20% viewport)."
-      ],
-      "palette_hex": {
-        "black_ink": "#0B0B0D",
-        "black_velvet": "#111114",
-        "surface_1": "#141418",
-        "surface_2": "#1A1A20",
-        "text_primary": "#F5F2EE",
-        "text_muted": "#B9B2AA",
-        "gold": "#D6B25E",
-        "gold_deep": "#B8923B",
-        "blush": "#F2D7D0",
-        "rose_gold": "#B77A86",
-        "border_subtle": "rgba(214,178,94,0.18)",
-        "shadow": "rgba(0,0,0,0.55)",
-        "focus_ring": "rgba(214,178,94,0.45)"
-      },
-      "shadcn_hsl_suggestion": {
-        "background": "240 10% 4%",
-        "foreground": "30 20% 96%",
-        "card": "240 10% 7%",
-        "card-foreground": "30 20% 96%",
-        "popover": "240 10% 7%",
-        "popover-foreground": "30 20% 96%",
-        "primary": "42 55% 60%",
-        "primary-foreground": "240 10% 6%",
-        "secondary": "240 8% 12%",
-        "secondary-foreground": "30 20% 96%",
-        "muted": "240 8% 12%",
-        "muted-foreground": "30 10% 72%",
-        "accent": "350 35% 88%",
-        "accent-foreground": "240 10% 6%",
-        "destructive": "0 70% 45%",
-        "destructive-foreground": "0 0% 98%",
-        "border": "42 35% 22%",
-        "input": "240 8% 14%",
-        "ring": "42 55% 60%",
-        "radius": "0.9rem"
-      },
-      "gradients_allowed": {
-        "hero_overlay_only": [
-          "radial-gradient(60% 60% at 70% 20%, rgba(214,178,94,0.18) 0%, rgba(214,178,94,0) 60%)",
-          "radial-gradient(50% 50% at 20% 10%, rgba(242,215,208,0.14) 0%, rgba(242,215,208,0) 62%)"
-        ],
-        "rule": "Somma overlay gradienti <= 20% viewport; mai su aree testo lunghe; mai su elementi <100px."
-      },
-      "spacing_scale_px": {
-        "xs": 8,
-        "sm": 12,
-        "md": 16,
-        "lg": 24,
-        "xl": 32,
-        "2xl": 48,
-        "3xl": 72,
-        "4xl": 96
-      },
-      "shadow_system": {
-        "elev_1": "0 10px 30px rgba(0,0,0,0.35)",
-        "elev_2": "0 18px 60px rgba(0,0,0,0.55)",
-        "glow_gold": "0 0 0 1px rgba(214,178,94,0.18), 0 0 28px rgba(214,178,94,0.10)",
-        "glow_blush": "0 0 0 1px rgba(242,215,208,0.14), 0 0 26px rgba(242,215,208,0.10)"
-      },
-      "radius_system": {
-        "card": "20px",
-        "button": "12px",
-        "pill": "999px",
-        "input": "14px"
-      }
-    }
-  },
-
   "typography": {
-    "google_fonts": {
-      "heading": {
+    "fonts": {
+      "display": {
         "family": "Playfair Display",
-        "weights": [600, 700],
-        "usage": "Hero logo lockup, H1/H2 editorial"
+        "usage": "logo/hero headline, titoli piani",
+        "classes": "font-display"
       },
-      "body_ui": {
+      "body": {
         "family": "Space Grotesk",
-        "weights": [400, 500, 600],
-        "usage": "UI, labels, body, buttons"
+        "usage": "UI, prezzi, label, microcopy"
+      },
+      "mono": {
+        "family": "Roboto Mono (fallback: ui-monospace)",
+        "usage": "codice ordine, indirizzi wallet, importi",
+        "note": "Usare tabular-nums dove possibile"
       }
     },
-    "tailwind_text_hierarchy": {
-      "h1": "text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.02em]",
-      "h2": "text-base md:text-lg text-muted-foreground",
-      "section_label": "text-xs tracking-[0.22em] uppercase text-muted-foreground",
-      "section_headline": "text-3xl sm:text-4xl font-semibold uppercase tracking-[0.06em]",
-      "body": "text-sm sm:text-base leading-relaxed text-foreground/90",
-      "small": "text-xs text-muted-foreground"
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl",
+      "h2": "text-base md:text-lg",
+      "body": "text-sm md:text-base",
+      "small": "text-xs"
     },
-    "type_details": [
-      "Headlines spesso uppercase ma con tracking ampio per lusso.",
-      "Numeri prezzi: Space Grotesk 600, tabular-nums (class: tabular-nums).",
-      "Evita testo troppo sottile su sfondo scuro: minimo font-medium per label importanti."
+    "rules": [
+      "Su sfondo scuro evitare pesi < 400 per testi piccoli.",
+      "Prezzi sempre con tracking-tight e tabular-nums (se disponibile)."
     ]
   },
-
-  "grid_and_layout": {
-    "container": {
-      "max_width": "max-w-6xl",
-      "padding": "px-4 sm:px-6 lg:px-8",
-      "section_spacing": "py-16 sm:py-20 lg:py-24"
-    },
-    "hero": {
-      "structure": [
-        "Full-screen (min-h-[100svh])",
-        "Background: foto utente in cover + overlay scuro + 2 radial glow (oro/blush)",
-        "Left aligned content block (max-w-xl) + CTA row",
-        "Scroll hint in basso (pill con ‘Scorri’)"
-      ],
-      "parallax": {
-        "approach": "Framer Motion useScroll + useTransform per muovere background image e glow overlay (leggero).",
-        "limits": "Parallax max 24px su mobile, 48px su desktop."
+  "color_system": {
+    "notes": [
+      "Obiettivo: sostituire i valori oro -> azzurro SENZA rinominare le classi esistenti (.btn-gold, .text-gold-sheen, --gold...).",
+      "Shadcn tokens (--primary/--ring/--border) devono seguire l'azzurro.",
+      "Testo su bottoni azzurri: usare #0b0b0d (ink) per contrasto e look 'reale'."
+    ],
+    "tokens_css": {
+      "path": "/app/frontend/src/index.css",
+      "replace_mapping": {
+        "--primary": "196 100% 47%",
+        "--primary-foreground": "240 10% 4%",
+        "--ring": "196 100% 47%",
+        "--border": "196 35% 22%",
+        "--gold": "#00AFF0",
+        "--gold-deep": "#0089BD",
+        "--gold-light": "#6AD7FF",
+        "--border-subtle": "rgba(0, 175, 240, 0.18)",
+        "--glow-gold": "0 0 0 1px rgba(0, 175, 240, 0.22), 0 0 32px rgba(0, 175, 240, 0.14)",
+        "--glow-blush": "0 0 0 1px rgba(242, 215, 208, 0.16), 0 0 30px rgba(231, 184, 200, 0.14)",
+        "--blush": "#f2d7d0",
+        "--rose": "#e7b8c8",
+        "--rose-gold": "#b77a86",
+        "--ink": "#0b0b0d",
+        "--velvet": "#111114",
+        "--surface-1": "#141418",
+        "--surface-2": "#1a1a20"
+      },
+      "logo_sheen_gradient": {
+        "class": ".text-gold-sheen",
+        "new_gradient": "linear-gradient(100deg, #0089BD 0%, #6AD7FF 26%, #00AFF0 44%, #f2d7d0 62%, #00AFF0 80%, #0089BD 100%)",
+        "rule": "Logo only; non usare su testi lunghi"
+      },
+      "button_gradient": {
+        "class": ".btn-gold",
+        "new_gradient": "linear-gradient(135deg, #6AD7FF 0%, #00AFF0 46%, #0089BD 100%)",
+        "text_color": "#0b0b0d"
+      },
+      "dot_glow": {
+        "class": ".dot-glow",
+        "background": "var(--gold)",
+        "shadow": "0 0 0 4px rgba(0, 175, 240, 0.12), 0 0 18px rgba(0, 175, 240, 0.7)"
       }
     },
-    "section_pattern": {
-      "pattern": "Dot luminoso + label uppercase + headline grande + testo + CTA",
-      "dot": "w-2 h-2 rounded-full bg-[--gold] shadow-[var(--glow_gold)]"
-    },
-    "cards": {
-      "style": "Card scure arrotondate, bordo oro sottilissimo, highlight on hover",
-      "tailwind": "rounded-[20px] bg-card/70 backdrop-blur-[6px] border border-[color:var(--border_subtle)] shadow-[var(--elev_1)]"
+    "semantic": {
+      "bg": "#0b0b0d",
+      "surface_1": "#141418",
+      "surface_2": "#1a1a20",
+      "text_primary": "#f5f2ee",
+      "text_muted": "rgba(245, 242, 238, 0.72)",
+      "primary": "#00AFF0",
+      "primary_deep": "#0089BD",
+      "primary_light": "#6AD7FF",
+      "accent_blush": "#f2d7d0",
+      "accent_rose": "#e7b8c8",
+      "success": "#2EE59D",
+      "warning": "#FFCC66",
+      "danger": "#FF4D4D"
     }
   },
-
-  "motion_and_microinteractions": {
-    "libraries": {
-      "framer_motion": {
-        "use": "Intro reveal, scroll reveal, hover micro-animations, parallax",
-        "install": "npm i framer-motion"
-      },
-      "lenis_optional": {
-        "use": "Smooth scroll premium (solo landing, non admin)",
-        "install": "npm i @studio-freight/lenis"
-      },
-      "particles": {
-        "use": "Sparkle particles leggeri (solo hero/intro)",
-        "suggestion": "tsparticles (react) oppure canvas custom minimal",
-        "install": "npm i react-tsparticles tsparticles"
-      }
+  "layout_and_grid": {
+    "container": {
+      "mobile": "px-4",
+      "desktop_max": "max-w-[1100px] mx-auto px-6",
+      "rule": "Home: full-bleed per griglia foto; contenuti (piani) dentro container"
     },
-    "principles": [
-      "Animazioni lente e deliberate (luxury): duration 0.6–1.0s, ease [0.22,1,0.36,1].",
-      "Hover: micro lift (translateY -2px) + glow oro/blush.",
-      "Scroll reveal: opacity 0→1 + y 14→0; stagger 0.08.",
-      "Riduci/Disattiva se prefers-reduced-motion: reduce."
-    ],
-    "no_transition_all": "Vietato transition: all. Usare transition-colors, transition-opacity, transition-shadow."
-  },
-
-  "page_flow": {
-    "routes": {
-      "landing": "/",
-      "admin_login": "/admin",
-      "admin_dashboard": "/admin/requests"
-    },
-    "landing_sections_order": [
-      "Intro cinematica + Salta l’intro",
-      "Age gate 18+ (Entra / Esci)",
-      "Hero parallax (logo, tagline, 2 CTA)",
-      "Il mio mondo (about)",
-      "Anteprima contenuti esclusivi (locked/blur)",
-      "Bundle & Prezzi (tiers)",
-      "Cataloghi filtrabili (pills)",
-      "Richiesta personalizzata (form salvato DB)",
-      "FAQ",
-      "Community / Contatti (Telegram/Instagram/WhatsApp)",
-      "Footer + disclaimer 18+"
-    ]
-  },
-
-  "components": {
-    "component_path": {
-      "shadcn_primary": [
-        "/app/frontend/src/components/ui/button.jsx",
-        "/app/frontend/src/components/ui/card.jsx",
-        "/app/frontend/src/components/ui/badge.jsx",
-        "/app/frontend/src/components/ui/tabs.jsx",
-        "/app/frontend/src/components/ui/toggle-group.jsx",
-        "/app/frontend/src/components/ui/accordion.jsx",
-        "/app/frontend/src/components/ui/dialog.jsx",
-        "/app/frontend/src/components/ui/sheet.jsx",
-        "/app/frontend/src/components/ui/input.jsx",
-        "/app/frontend/src/components/ui/textarea.jsx",
-        "/app/frontend/src/components/ui/label.jsx",
-        "/app/frontend/src/components/ui/separator.jsx",
-        "/app/frontend/src/components/ui/scroll-area.jsx",
-        "/app/frontend/src/components/ui/sonner.jsx",
-        "/app/frontend/src/components/ui/table.jsx"
+    "home_above_fold": {
+      "structure": [
+        "Top mini-bar: logo + counter online + CTA 'Sblocca'",
+        "Griglia foto pixelate full-width (dominante)",
+        "Scroll hint minimale"
       ],
-      "custom_components_to_create": [
-        "/app/frontend/src/components/IntroGate.js",
-        "/app/frontend/src/components/AgeGateDialog.js",
-        "/app/frontend/src/components/ParallaxHero.js",
-        "/app/frontend/src/components/SectionHeader.js",
-        "/app/frontend/src/components/LockedPreviewGrid.js",
-        "/app/frontend/src/components/PricingTiers.js",
-        "/app/frontend/src/components/CatalogFilters.js",
-        "/app/frontend/src/components/CustomRequestForm.js",
-        "/app/frontend/src/components/SocialContactBar.js",
-        "/app/frontend/src/components/FooterLuxury.js",
-        "/app/frontend/src/components/admin/AdminLogin.js",
-        "/app/frontend/src/components/admin/RequestsTable.js"
+      "spacing": "Usare 2–3x più spazio: gap-4/5, section py-10 md:py-14"
+    },
+    "mobile_bottom_nav": {
+      "pattern": "fixed bottom bar con 4–5 azioni",
+      "height": "h-16",
+      "safe_area": "pb-[calc(env(safe-area-inset-bottom)+1rem)]",
+      "active_state": "underline/indicator azzurro + label rosa"
+    }
+  },
+  "home_previews": {
+    "toggle": {
+      "ui": "Switch shadcn + segmented Tabs",
+      "component_path": [
+        "/app/frontend/src/components/ui/switch.jsx",
+        "/app/frontend/src/components/ui/tabs.jsx"
+      ],
+      "query_param": "?home=a | ?home=b",
+      "data_testid": "home-preview-toggle"
+    },
+    "preview_a": {
+      "sections": [
+        "Hero minimale",
+        "Foto pixelate",
+        "Piani & Pacchetti",
+        "CTA richiesta",
+        "Footer minimo"
+      ],
+      "rest_in_separate_pages": [
+        "/come-funziona",
+        "/chi-sono",
+        "/regole",
+        "/domande",
+        "/contatti"
       ]
     },
-
-    "component_specs": {
-      "intro_gate": {
-        "goal": "Impatto cinematografico + controllo utente (Salta l’intro) + performance",
-        "ui": [
-          "Full-screen overlay con video (muted) o fallback immagine",
-          "Logo reveal (mask/opacity) + tagline",
-          "Button ‘Salta l’intro’ sempre visibile (top-right)"
+    "preview_b": {
+      "sections": [
+        "Hero minimale",
+        "Foto pixelate",
+        "Piani & Pacchetti",
+        "Sezioni compatte in fondo (Accordion/righe)"
+      ],
+      "compact_sections": [
+        "Come funziona (3 righe)",
+        "Regole (bullet)",
+        "FAQ (Accordion)",
+        "Contatti (1 riga + link)"
+      ]
+    }
+  },
+  "key_components": {
+    "shadcn_primary": {
+      "button": {
+        "path": "/app/frontend/src/components/ui/button.jsx",
+        "variants": [
+          "primary (usa .btn-gold rimappato ad azzurro)",
+          "secondary (btn-ghost-lux)",
+          "destructive"
         ],
-        "a11y": [
-          "Focus trap se overlay attivo",
-          "Esc = salta",
-          "prefers-reduced-motion: salta automaticamente"
+        "sizes": "min-h-[44px] px-4 py-3",
+        "data_testid_examples": [
+          "unlock-primary-button",
+          "buy-plan-button",
+          "checkout-confirm-button"
+        ]
+      },
+      "badge": {
+        "path": "/app/frontend/src/components/ui/badge.jsx",
+        "usage": [
+          "18+",
+          "Sblocca",
+          "Conferma automatica",
+          "Senza commissioni",
+          "Tempo limitato"
+        ]
+      },
+      "card": {
+        "path": "/app/frontend/src/components/ui/card.jsx",
+        "usage": "Piani, pacchetti, vault items, top fan"
+      },
+      "tabs": {
+        "path": "/app/frontend/src/components/ui/tabs.jsx",
+        "usage": "Filtri catalogo: Abbonamenti / One-shot / Extra / Bundle"
+      },
+      "accordion": {
+        "path": "/app/frontend/src/components/ui/accordion.jsx",
+        "usage": "FAQ e sezioni compatte preview B"
+      },
+      "dialog_drawer": {
+        "paths": [
+          "/app/frontend/src/components/ui/dialog.jsx",
+          "/app/frontend/src/components/ui/drawer.jsx"
         ],
-        "data_testids": {
-          "skip": "intro-skip-button",
-          "enter": "intro-enter-button"
-        }
+        "rule": "Mobile: Drawer per acquisto rapido; Desktop: Dialog"
       },
-
-      "age_gate": {
-        "ui": "Dialog shadcn con backdrop scuro + blur leggero; copy chiaro 18+",
-        "buttons": ["Entra", "Esci"],
-        "storage": "Persistenza in localStorage: age_verified=1",
-        "data_testids": {
-          "dialog": "age-gate-dialog",
-          "enter": "age-gate-enter-button",
-          "exit": "age-gate-exit-button"
-        }
+      "progress": {
+        "path": "/app/frontend/src/components/ui/progress.jsx",
+        "usage": "Countdown 48h / stato ordine"
       },
-
-      "hero": {
-        "ctas": [
-          "CTA primaria: ‘Sblocca i contenuti’",
-          "CTA secondaria: ‘Richiesta personalizzata’"
+      "table": {
+        "path": "/app/frontend/src/components/ui/table.jsx",
+        "usage": "Admin ordini/pagamenti"
+      },
+      "sonner_toast": {
+        "path": "/app/frontend/src/components/ui/sonner.jsx",
+        "usage": "Copia indirizzo/importo, errori pagamento"
+      }
+    },
+    "custom_components_to_build": {
+      "pixelated_photo_card_js": {
+        "name": "PixelatedPhotoCard",
+        "purpose": "Mostrare SOLO immagini pixelate pre-generate (mai originali) con shimmer/crossfade.",
+        "props": [
+          "srcSet: {a,b,c} (3 varianti pixelate)",
+          "price",
+          "ctaLabel",
+          "onUnlock",
+          "locked: boolean"
         ],
-        "scroll_hint": "Pill in basso con micro-animazione (yoyo 6px) e testo ‘Scorri’",
-        "data_testids": {
-          "primary": "hero-primary-cta",
-          "secondary": "hero-secondary-cta"
-        }
-      },
-
-      "locked_preview": {
-        "ui": [
-          "Grid 2 colonne mobile / 3 desktop",
-          "Cards con immagine blur + overlay ‘Bloccato’ + badge ‘VIP’",
-          "Tap apre Dialog con teaser + CTA contatto"
+        "layout": "aspect-[9/16] rounded-2xl overflow-hidden relative",
+        "effects": [
+          "crossfade tra 3 immagini con opacity",
+          "shimmer overlay leggero (solo opacity/transform)",
+          "image-rendering: pixelated",
+          "optional blur-[1px]"
         ],
-        "blur": "Usare CSS filter blur(10px) + overlay gradient leggero; non mostrare dettagli.",
-        "data_testids": {
-          "item": "locked-preview-item",
-          "open": "locked-preview-open-dialog"
-        }
-      },
-
-      "pricing": {
-        "ui": [
-          "3 tier cards (Base / VIP / Elite) con badge",
-          "Una card ‘Consigliato’ con glow oro",
-          "Lista benefit con icone lucide-react"
+        "badges": [
+          "Badge 18+ top-left",
+          "Badge 'Sblocca' bottom-right"
         ],
-        "data_testids": {
-          "tier": "pricing-tier-card",
-          "cta": "pricing-tier-cta-button"
-        }
+        "overlay": "bottom gradient overlay (nero -> trasparente) per CTA e prezzo",
+        "data_testid": "pixelated-photo-card"
       },
-
-      "catalog_filters": {
-        "ui": [
-          "ToggleGroup pills (Foto / Video / Bundle / Novità)",
-          "Risultati in cards con badge",
-          "Empty state elegante (testo + CTA contatto)"
-        ],
-        "data_testids": {
-          "filter": "catalog-filter-pill",
-          "grid": "catalog-results-grid"
-        }
+      "mobile_bottom_nav_js": {
+        "name": "MobileBottomNav",
+        "purpose": "Navigazione rapida: Home, Vault, Acquisti, Richieste, Account",
+        "data_testid": "mobile-bottom-nav"
       },
-
-      "custom_request_form": {
-        "fields": [
-          "Nome (opzionale)",
-          "Canale preferito (Select: Telegram/Instagram/WhatsApp)",
-          "Budget indicativo (Select)",
-          "Descrizione richiesta (Textarea)",
-          "Consenso 18+ (Checkbox)"
-        ],
-        "submit": "Invia richiesta",
-        "toast": "Usare sonner per conferma/errore",
-        "data_testids": {
-          "form": "custom-request-form",
-          "submit": "custom-request-submit-button",
-          "channel": "custom-request-channel-select",
-          "message": "custom-request-message-textarea"
-        }
-      },
-
-      "faq": {
-        "ui": "Accordion shadcn, 6-8 domande, tono rassicurante",
-        "data_testids": {
-          "accordion": "faq-accordion"
-        }
-      },
-
-      "social_contact": {
-        "ui": "Bar con 3 bottoni (Telegram/Instagram/WhatsApp) stile ghost + bordo oro",
-        "placeholders": "Link placeholder fino a domani",
-        "data_testids": {
-          "telegram": "contact-telegram-button",
-          "instagram": "contact-instagram-button",
-          "whatsapp": "contact-whatsapp-button"
-        }
-      },
-
-      "admin": {
-        "login": {
-          "ui": "Card centrale ma contenuto allineato a sinistra; input password + submit",
-          "data_testids": {
-            "password": "admin-password-input",
-            "submit": "admin-login-submit-button"
-          }
-        },
-        "requests_table": {
-          "ui": "Table shadcn con status badge + drawer per dettagli/notes",
-          "columns": ["Data", "Nome", "Canale", "Budget", "Stato", "Azioni"],
-          "data_testids": {
-            "table": "admin-requests-table",
-            "row": "admin-requests-row",
-            "status": "admin-request-status-select",
-            "notes": "admin-request-notes-textarea"
-          }
-        }
+      "order_timeline_js": {
+        "name": "OrderTimeline",
+        "purpose": "Timeline verticale stati ordine con pallini che si accendono",
+        "data_testid": "order-status-timeline"
       }
     }
   },
-
-  "images": {
-    "image_urls": [
-      {
-        "category": "hero_background",
-        "description": "Hero parallax background (cover). Usare overlay scuro + glow oro/blush.",
-        "url": "https://customer-assets-0z36b82j.emergentagent.net/job_588f2616-bd6e-4bf9-a505-f17b9acdd6d9/artifacts/c015e1711039f903_IMG_1482.jpeg"
-      },
-      {
-        "category": "about_section",
-        "description": "Foto per ‘Il mio mondo’ (aspect ratio 4:5 o 3:4 con crop).",
-        "url": "https://customer-assets-0z36b82j.emergentagent.net/job_588f2616-bd6e-4bf9-a505-f17b9acdd6d9/artifacts/9d00e0c5dea96c11_E80AE596-C117-47A8-9A51-A1771FD0608D.jpeg"
-      },
-      {
-        "category": "locked_preview_items",
-        "description": "Anteprime contenuti (blur + lock overlay).",
-        "url": "https://customer-assets-0z36b82j.emergentagent.net/job_588f2616-bd6e-4bf9-a505-f17b9acdd6d9/artifacts/3591dfa3c51b258a_IMG_2638.webp"
-      }
+  "pixelated_gallery_spec": {
+    "asset_rules": [
+      "NON servire mai originali al browser.",
+      "Generare 3 varianti pixelate per ogni foto (offset diverso) per shimmer/crossfade.",
+      "Formato: verticale 9:16; consigliato 1080x1920 o 720x1280.",
+      "Compressione: WebP/AVIF; target < 180KB per immagine."
     ],
-    "usage_rules": [
-      "Usare SOLO queste foto (nessuna stock people).",
-      "Mai mostrare contenuti espliciti: mantenere blur/overlay nelle anteprime.",
-      "Ottimizzare: usare <img loading='lazy'> e dimensioni responsive (srcSet se possibile)."
+    "card_style": {
+      "radius": "rounded-2xl (22–24px)",
+      "frame": "border border-[var(--border-subtle)]",
+      "shadow": "shadow-[0_18px_60px_rgba(0,0,0,0.55)]",
+      "hover": "border-color -> rgba(0,175,240,0.45) + glow leggero",
+      "tap": "scale-[0.98] (solo su pointer coarse)"
+    },
+    "animation": {
+      "duration_ms": 180,
+      "crossfade_interval_ms": 900,
+      "easing": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "reduced_motion": "disabilitare crossfade e shimmer"
+    }
+  },
+  "checkout_and_order_pages": {
+    "checkout_page_cassa": {
+      "layout": {
+        "mobile": "1 colonna; stepper minimo",
+        "desktop": "2 colonne: form + riepilogo sticky"
+      },
+      "components": [
+        "RadioGroup per metodo pagamento",
+        "Card riepilogo",
+        "Checkbox 18+",
+        "Button primario 'Conferma e paga'"
+      ],
+      "badges": [
+        "Conferma automatica",
+        "Senza commissioni"
+      ],
+      "data_testids": [
+        "checkout-payment-method-radio",
+        "checkout-age-checkbox",
+        "checkout-confirm-button"
+      ]
+    },
+    "order_page_ordine_code": {
+      "hero": {
+        "order_code": "monospace grande, tracking-widest",
+        "qr": "QR azzurro su fondo scuro (quiet zone rispettata)",
+        "primary_cta": "Paga con wallet",
+        "secondary": "Copia indirizzo / Copia importo"
+      },
+      "timeline": {
+        "states": [
+          "Creato",
+          "In attesa pagamento",
+          "Confermato",
+          "Consegna"
+        ],
+        "visual": "linea verticale + dot glow azzurro per stato attivo"
+      },
+      "countdown": "48h con Progress + testo muted",
+      "data_testids": [
+        "order-code-text",
+        "order-qr",
+        "order-pay-wallet-button",
+        "order-copy-address-button",
+        "order-copy-amount-button",
+        "order-countdown"
+      ]
+    }
+  },
+  "microcopy_it": {
+    "cta": {
+      "primary": [
+        "Sblocca ora",
+        "Acquista e vedi subito",
+        "Pago e vedo subito"
+      ],
+      "secondary": [
+        "Vedi piani",
+        "Apri vault",
+        "I miei acquisti"
+      ]
+    },
+    "badges": [
+      "18+",
+      "Nuovo",
+      "Top fan",
+      "Tempo limitato",
+      "Conferma automatica",
+      "Senza commissioni"
+    ],
+    "helper": [
+      "Pagamento verificato: consegna automatica.",
+      "Hai 48h per completare il pagamento.",
+      "Se paghi ora, vedi subito."
     ]
   },
-
+  "motion_and_interactions": {
+    "principles": [
+      "Solo opacity/transform per performance.",
+      "Durate brevi: 120–220ms UI; 600–900ms per crossfade gallery.",
+      "Lenis + framer-motion già presenti: usare entrance soft (y: 8 -> 0, opacity 0 -> 1)."
+    ],
+    "button_states": {
+      "hover": "brightness(1.05) + shadow più forte",
+      "active": "scale(0.98)",
+      "focus": "ring-2 ring-[--gold] ring-offset-2 ring-offset-[--ink]"
+    },
+    "scroll": {
+      "home": "snap leggero opzionale solo per gallery (non obbligatorio)",
+      "reduced_motion": "disabilitare parallax e crossfade"
+    }
+  },
   "accessibility": {
-    "requirements": [
-      "Contrasto: testo principale #F5F2EE su #0B0B0D; evitare oro per body text lungo.",
-      "Focus visibile: ring oro (ring-2 ring-[color:var(--focus_ring)] ring-offset-2 ring-offset-background).",
-      "Riduzione motion: se prefers-reduced-motion, disattivare parallax/particles e saltare intro.",
-      "Tasti: Esc chiude dialog/intro; Tab order logico."
+    "rules": [
+      "Touch target minimo 44px.",
+      "Contrasto: testo su azzurro preferibilmente ink (#0b0b0d).",
+      "prefers-reduced-motion: disabilitare shimmer/crossfade.",
+      "Focus visibile su tutti gli elementi interattivi."
     ]
   },
-
   "performance": {
     "rules": [
-      "Particles solo in hero/intro e sospesi quando non visibili.",
-      "Intro video: preload='none' e fallback immagine; non bloccare LCP.",
-      "Usare IntersectionObserver per reveal invece di listener scroll pesanti.",
-      "Evitare blur pesanti su grandi aree; blur solo su cards/overlay piccoli."
+      "No backdrop-blur su mobile (già gestito in index.css).",
+      "Immagini pixelate: lazy loading + decoding=async.",
+      "Evita filtri CSS pesanti su grandi aree; shimmer solo overlay leggero."
     ]
   },
-
-  "instructions_to_main_agent": {
-    "implementation_notes": [
-      "Aggiornare tokens in index.css (tema dark) e rimuovere/ignorare stili legacy in App.css (evitare layout centrato).",
-      "Implementare IntroGate + AgeGate: gating state machine (introSeen, ageVerified).",
-      "Hero: usare foto #1 come background; overlay scuro + 2 radial glow (oro/blush).",
-      "Sezioni: usare SectionHeader riutilizzabile (dot + label + headline).",
-      "Cataloghi: ToggleGroup pills + grid cards; includere empty state.",
-      "Form richieste: salvare su MongoDB via FastAPI; toast sonner; validazione minima.",
-      "Admin: password semplice (per ora) + pagina gestione richieste con Table + Drawer/Dialog per note.",
-      "TUTTI gli elementi interattivi e info chiave devono avere data-testid (kebab-case).",
-      "JS only: creare componenti in .js/.jsx (non .tsx)."
-    ],
-    "suggested_testids_global": [
-      "nav-open-menu-button",
-      "nav-contact-cta-button",
-      "footer-18plus-disclaimer",
-      "catalog-empty-state",
-      "toast-success-message"
+  "image_urls": {
+    "note": "Le foto reali verranno fornite dal cliente e devono essere pre-pixelate lato build/asset pipeline. Qui solo placeholder per layout.",
+    "placeholders": [
+      {
+        "category": "home_pixelated_gallery_placeholder",
+        "description": "Placeholder verticale 9:16 (da sostituire con asset pixelati reali)",
+        "image_url": "https://images.unsplash.com/photo-1520975958225-1c1f4c7b1f3a?auto=format&fit=crop&w=900&q=60"
+      }
     ]
   },
-
-  "general_ui_ux_design_guidelines_appendix": "<General UI UX Design Guidelines>  \n    - You must **not** apply universal transition. Eg: `transition: all`. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms\n    - You must **not** center align the app container, ie do not add `.App { text-align: center; }` in the css file. This disrupts the human natural reading flow of text\n   - NEVER: use AI assistant Emoji characters like`🤖🧠💭💡🔮🎯📚🎭🎬🎪🎉🎊🎁🎀🎂🍰🎈🎨🎰💰💵💳🏦💎🪙💸🤑📊📈📉💹🔢🏆🥇 etc for icons. Always use **FontAwesome cdn** or **lucid-react** library already installed in the package.json\n\n **GRADIENT RESTRICTION RULE**\nNEVER use dark/saturated gradient combos (e.g., purple/pink) on any UI element.  Prohibited gradients: blue-500 to purple 600, purple 500 to pink-500, green-500 to blue-500, red to pink etc\nNEVER use dark gradients for logo, testimonial, footer etc\nNEVER let gradients cover more than 20% of the viewport.\nNEVER apply gradients to text-heavy content or reading areas.\nNEVER use gradients on small UI elements (<100px width).\nNEVER stack multiple gradient layers in the same viewport.\n\n**ENFORCEMENT RULE:**\n    • Id gradient area exceeds 20% of viewport OR affects readability, **THEN** use solid colors\n\n**How and where to use:**\n   • Section backgrounds (not content backgrounds)\n   • Hero section header content. Eg: dark to light to dark color\n   • Decorative overlays and accent elements only\n   • Hero section with 2-3 mild color\n   • Gradients creation can be done for any angle say horizontal, vertical or diagonal\n\n- For AI chat, voice application, **do not use purple color. Use color like light green, ocean blue, peach orange etc**\n\n</Font Guidelines>\n\n- Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead. \n   \n- Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.\n\n- Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.\n   \n- Before generating UI, infer the visual style from the problem statement (palette, contrast, mood, motion) and immediately instantiate it by setting global design tokens (primary, secondary/accent, background, foreground, ring, state colors), rather than relying on any library defaults. Don't make the background dark as a default step, always understand problem first and define colors accordingly\n    Eg: - if it implies playful/energetic, choose a colorful scheme\n           - if it implies monochrome/minimal, choose a black–white/neutral scheme\n\n**Component Reuse:**\n\t- Prioritize using pre-existing components from src/components/ui when applicable\n\t- Create new components that match the style and conventions of existing components when needed\n\t- Examine existing components to understand the project's component patterns before creating new ones\n\n**IMPORTANT**: Do not use HTML based component like dropdown, calendar, toast etc. You **MUST** always use `/app/frontend/src/components/ui/ ` only as a primary components as these are modern and stylish component\n\n**Best Practices:**\n\t- Use Shadcn/UI as the primary component library for consistency and accessibility\n\t- Import path: ./components/[component-name]\n\n**Export Conventions:**\n\t- Components MUST use named exports (export const ComponentName = ...)\n\t- Pages MUST use default exports (export default function PageName() {...})\n\n**Toasts:**\n  - Use `sonner` for toasts\"\n  - Sonner component are located in `/app/src/components/ui/sonner.tsx`\n\nUse 2–4 color gradients, subtle textures/noise overlays, or CSS-based noise to avoid flat visuals.\n</General UI UX Design Guidelines>"
+  "libraries_and_scaffolds": {
+    "framer_motion": {
+      "usage": "Animazioni entrance e tap feedback",
+      "pattern_js": "import { motion } from 'framer-motion'"
+    },
+    "optional_canvas_mosaic": {
+      "when": "Se si vuole mosaic dinamico invece di 3 immagini pre-pixelate",
+      "note": "Preferire pre-render per sicurezza (mai originali). Canvas/WebGL rischia di richiedere originale.",
+      "reference": "Implementare solo se si può garantire che la sorgente sia già pixelata."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Aggiornare SOLO i valori token in /app/frontend/src/index.css: rimappare --gold* e shadcn --primary/--ring/--border all'azzurro #00AFF0 senza rinominare classi.",
+    "Aggiornare .text-gold-sheen e .btn-gold gradient come da specifica (azzurro + blush leggero).",
+    "Implementare Home con toggle A/B (Switch o Tabs) e query param; default A.",
+    "Above-the-fold: griglia foto pixelate 9:16 full-width; ogni card ha CTA 'Sblocca' e badge 18+; tap apre Drawer acquisto.",
+    "Tutti gli elementi interattivi e info chiave devono avere data-testid (kebab-case).",
+    "Checkout /cassa: 1 colonna mobile, 2 colonne desktop; RadioGroup metodi + badge; checkbox 18+ obbligatoria.",
+    "Ordine /ordine/:code: codice monospaziato grande + QR + timeline verticale + countdown 48h; bottoni copia con toast sonner.",
+    "Non usare backdrop-blur su mobile; animazioni solo transform/opacity; rispettare prefers-reduced-motion."
+  ],
+  "general_ui_ux_design_guidelines_appendix": "<General UI UX Design Guidelines>\n    - You must **not** apply universal transition. Eg: `transition: all`. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms\n    - You must **not** center align the app container, ie do not add `.App { text-align: center; }` in the css file. This disrupts the human natural reading flow of text\n   - NEVER: use AI assistant Emoji characters like`🤖🧠💭💡🔮🎯📚🎭🎬🎪🎉🎊🎁🎀🎂🍰🎈🎨🎰💰💵💳🏦💎🪙💸🤑📊📈📉💹🔢🏆🥇 etc for icons. Always use **FontAwesome cdn** or **lucid-react** library already installed in the package.json\n\n **GRADIENT RESTRICTION RULE**\nNEVER use dark/saturated gradient combos (e.g., purple/pink) on any UI element.  Prohibited gradients: blue-500 to purple 600, purple 500 to pink-500, green-500 to blue-500, red to pink etc\nNEVER use dark gradients for logo, testimonial, footer etc\nNEVER let gradients cover more than 20% of the viewport.\nNEVER apply gradients to text-heavy content or reading areas.\nNEVER use gradients on small UI elements (<100px width).\nNEVER stack multiple gradient layers in the same viewport.\n\n**ENFORCEMENT RULE:**\n    • Id gradient area exceeds 20% of viewport OR affects readability, **THEN** use solid colors\n\n**How and where to use:**\n   • Section backgrounds (not content backgrounds)\n   • Hero section header content. Eg: dark to light to dark color\n   • Decorative overlays and accent elements only\n   • Hero section with 2-3 mild color\n   • Gradients creation can be done for any angle say horizontal, vertical or diagonal\n\n- For AI chat, voice application, **do not use purple color. Use color like light green, ocean blue, peach orange etc\n\n</Font Guidelines>\n\n- Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead. \n   \n- Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.\n\n- Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.\n   \n- Before generating UI, infer the visual style from the problem statement (palette, contrast, mood, motion) and immediately instantiate it by setting global design tokens (primary, secondary/accent, background, foreground, ring, state colors), rather than relying on any library defaults. Don't make the background dark as a default step, always understand problem first and define colors accordingly\n    Eg: - if it implies playful/energetic, choose a colorful scheme\n           - if it implies monochrome/minimal, choose a black–white/neutral scheme\n\n**Component Reuse:**\n\t- Prioritize using pre-existing components from src/components/ui when applicable\n\t- Create new components that match the style and conventions of existing components when needed\n\t- Examine existing components to understand the project's component patterns before creating new ones\n\n**IMPORTANT**: Do not use HTML based component like dropdown, calendar, toast etc. You **MUST** always use `/app/frontend/src/components/ui/ ` only as a primary components as these are modern and stylish component\n\n**Best Practices:**\n\t- Use Shadcn/UI as the primary component library for consistency and accessibility\n\t- Import path: ./components/[component-name]\n\n**Export Conventions:**\n\t- Components MUST use named exports (export const ComponentName = ...)\n\t- Pages MUST use default exports (export default function PageName() {...})\n\n**Toasts:**\n  - Use `sonner` for toasts\"\n  - Sonner component are located in `/app/src/components/ui/sonner.tsx`\n\nUse 2–4 color gradients, subtle textures/noise overlays, or CSS-based noise to avoid flat visuals.\n</General UI UX Design Guidelines>"
 }

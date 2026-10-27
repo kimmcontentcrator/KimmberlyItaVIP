@@ -75,8 +75,8 @@ export const CustomRequestForm = ({ prefill }) => {
   const channelLabel = (v) => CHANNELS.find((c) => c.value === v)?.label || v;
 
   return (
-    <section id="richieste" data-testid="request-section" className="relative overflow-hidden py-24 sm:py-32">
-      <div className="pointer-events-none absolute -left-40 top-40 h-[480px] w-[480px] rounded-full" style={{ background: "radial-gradient(circle, rgba(214,178,94,0.10), rgba(214,178,94,0) 65%)" }} />
+    <section id="richieste" data-testid="request-section" className="relative overflow-hidden py-16 sm:py-24">
+      <div className="pointer-events-none absolute -left-40 top-40 h-[480px] w-[480px] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,175,240,0.10), rgba(0,175,240,0) 65%)" }} />
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.15fr]">
         <div>
           <SectionHeader k="request"
@@ -112,13 +112,13 @@ export const CustomRequestForm = ({ prefill }) => {
             ) : (
               <motion.form key="form" data-testid="custom-request-form" onSubmit={submit} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-5" noValidate>
                 {fan && (
-                  <div data-testid="request-linked-account" className="flex items-center gap-2 rounded-xl border border-[rgba(214,178,94,0.2)] bg-[#0b0b0d] px-4 py-2.5 text-xs text-[#e9e4de]">
+                  <div data-testid="request-linked-account" className="flex items-center gap-2 rounded-xl border border-[rgba(0,175,240,0.2)] bg-[#0b0b0d] px-4 py-2.5 text-xs text-[#e9e4de]">
                     <UserCheck className="h-4 w-4 text-[color:var(--gold)]" /> Collegata al tuo account <span className="text-[color:var(--gold-light)]">@{fan.username}</span>
                   </div>
                 )}
 
                 {f.item && (
-                  <div data-testid="request-selected-item" className="flex items-center justify-between gap-3 rounded-xl border border-[rgba(231,184,200,0.3)] bg-[#1a1418] px-4 py-3">
+                  <div data-testid="request-selected-item" className="flex items-center justify-between gap-3 rounded-xl border border-[rgba(231,184,200,0.3)] bg-[#121a20] px-4 py-3">
                     <div>
                       <div className="text-[10px] uppercase tracking-[0.2em] text-[color:var(--blush)]">Hai scelto</div>
                       <div className="font-display text-lg text-[#f5f2ee]">{f.item}{f.item_price != null && <span className="ml-2 text-[color:var(--gold-light)] tabular-nums">{fmtEur(f.item_price)}</span>}</div>
@@ -138,7 +138,7 @@ export const CustomRequestForm = ({ prefill }) => {
                     <Label className="text-[11px] uppercase tracking-[0.18em] text-[#b9b2aa]">Tipo di richiesta</Label>
                     <Select value={f.request_type} onValueChange={(v) => set("request_type", v)}>
                       <SelectTrigger data-testid="custom-request-type-select" className={field}><SelectValue /></SelectTrigger>
-                      <SelectContent className="border-[rgba(214,178,94,0.2)] bg-[#141418] text-[#f5f2ee]">
+                      <SelectContent className="border-[rgba(0,175,240,0.2)] bg-[#141418] text-[#f5f2ee]">
                         {REQUEST_TYPES.map((t) => <SelectItem key={t.value} value={t.value} data-testid={`request-type-option-${t.value}`}>{t.label}</SelectItem>)}
                       </SelectContent>
                     </Select>
@@ -150,7 +150,7 @@ export const CustomRequestForm = ({ prefill }) => {
                     <Label className="text-[11px] uppercase tracking-[0.18em] text-[#b9b2aa]">Canale preferito</Label>
                     <Select value={f.contact_channel} onValueChange={(v) => set("contact_channel", v)}>
                       <SelectTrigger data-testid="custom-request-channel-select" className={field}><SelectValue /></SelectTrigger>
-                      <SelectContent className="border-[rgba(214,178,94,0.2)] bg-[#141418] text-[#f5f2ee]">
+                      <SelectContent className="border-[rgba(0,175,240,0.2)] bg-[#141418] text-[#f5f2ee]">
                         {CHANNELS.map((c) => <SelectItem key={c.value} value={c.value} data-testid={`channel-option-${c.value}`}>{c.label}</SelectItem>)}
                       </SelectContent>
                     </Select>
@@ -198,7 +198,7 @@ export const CustomRequestForm = ({ prefill }) => {
                 </div>
 
                 <label className="flex cursor-pointer items-start gap-3">
-                  <Checkbox data-testid="custom-request-adult-checkbox" checked={f.is_adult} onCheckedChange={(v) => set("is_adult", !!v)} className="mt-0.5 border-[color:var(--gold)] data-[state=checked]:bg-[color:var(--gold)] data-[state=checked]:text-[#141014]" />
+                  <Checkbox data-testid="custom-request-adult-checkbox" checked={f.is_adult} onCheckedChange={(v) => set("is_adult", !!v)} className="mt-0.5 border-[color:var(--gold)] data-[state=checked]:bg-[color:var(--gold)] data-[state=checked]:text-[#0b0b0d]" />
                   <span className="text-sm text-[#b9b2aa]">Confermo di avere almeno 18 anni e di inviare una richiesta per contenuti destinati ad adulti.</span>
                 </label>
                 {errors.is_adult && <p className="-mt-3 text-xs text-[color:var(--rose)]">{errors.is_adult}</p>}

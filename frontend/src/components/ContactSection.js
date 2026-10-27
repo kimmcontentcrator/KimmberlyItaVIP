@@ -15,7 +15,7 @@ export const ContactSection = () => {
   const get = useEditable();
   const channel = get("contact.telegramChannel", CONTACTS.telegramChannel);
   return (
-  <section id="contatti" data-testid="contact-section" className="relative overflow-hidden bg-[#0f0f12] py-24 sm:py-32">
+  <section id="contatti" data-testid="contact-section" className="relative overflow-hidden bg-[#0f0f12] py-16 sm:py-24">
     <div className="pointer-events-none absolute right-0 top-0 h-[420px] w-[420px] rounded-full" style={{ background: "radial-gradient(circle, rgba(231,184,200,0.12), rgba(231,184,200,0) 65%)" }} />
     <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
       <SectionHeader k="contact"
@@ -43,7 +43,7 @@ export const ContactSection = () => {
                 className="lux-card group flex items-center justify-between p-6"
               >
                 <span className="flex items-center gap-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[rgba(214,178,94,0.3)] bg-[#0b0b0d] transition-colors duration-500 group-hover:border-[color:var(--rose)]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[rgba(0,175,240,0.3)] bg-[#0b0b0d] transition-colors duration-500 group-hover:border-[color:var(--rose)]">
                     <it.icon className="h-5 w-5 text-[color:var(--gold)]" />
                   </span>
                   <span>
@@ -59,7 +59,7 @@ export const ContactSection = () => {
       </div>
 
       <Reveal delay={0.1}>
-        <div data-testid="telegram-invite-card" className="mt-6 grid gap-6 rounded-[24px] border border-[rgba(214,178,94,0.25)] bg-gradient-to-r from-[#17140e] to-[#141418] p-6 sm:grid-cols-[1fr_auto] sm:items-center sm:p-8">
+        <div data-testid="telegram-invite-card" className="mt-6 grid gap-6 rounded-[24px] border border-[rgba(0,175,240,0.25)] bg-gradient-to-r from-[#0b151c] to-[#141418] p-6 sm:grid-cols-[1fr_auto] sm:items-center sm:p-8">
           <div>
             <span className="text-[11px] uppercase tracking-[0.3em] text-[color:var(--gold)]">Porta un amico</span>
             <h3 className="mt-3 font-display text-3xl italic text-[#f5f2ee]"><E k="invite.title">Invita su Telegram</E></h3>

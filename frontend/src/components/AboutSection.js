@@ -18,11 +18,11 @@ export const AboutSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section id="mondo" ref={ref} data-testid="about-section" className="relative py-24 sm:py-32">
+    <section id="mondo" ref={ref} data-testid="about-section" className="relative py-16 sm:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
         <Reveal className="relative order-2 lg:order-1">
           <div className="relative mx-auto max-w-md">
-            <div className="absolute -inset-3 rounded-[30px] border border-[rgba(214,178,94,0.22)]" />
+            <div className="absolute -inset-3 rounded-[30px] border border-[rgba(0,175,240,0.22)]" />
             <div className="relative overflow-hidden rounded-[26px] aspect-[4/5]">
               <motion.img style={{ y, scale: 1.15 }} src={PHOTOS.about} alt="Il mio mondo" loading="lazy" className="h-full w-full object-cover object-[40%_center]" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0d]/70 via-transparent to-transparent" />

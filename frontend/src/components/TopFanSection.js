@@ -4,11 +4,11 @@ import { Crown, Medal, Trophy } from "lucide-react";
 import { SectionHeader, T } from "./SectionHeader";
 import { E } from "../context/ContentContext";
 import { Reveal } from "./Reveal";
-import { API, scrollToId } from "../lib/scroll";
+import { API, goTo } from "../lib/scroll";
 import { fmtEur } from "../config/site";
 
 const MEDAL = [
-  { c: "#f1d998", ring: "rgba(214,178,94,0.6)", label: "Gold", h: "h-40 sm:h-48" },
+  { c: "#f1d998", ring: "rgba(0,175,240,0.6)", label: "Gold", h: "h-40 sm:h-48" },
   { c: "#d9d6d2", ring: "rgba(217,214,210,0.45)", label: "Silver", h: "h-32 sm:h-40" },
   { c: "#c98f6b", ring: "rgba(201,143,107,0.5)", label: "Bronze", h: "h-28 sm:h-32" },
 ];
@@ -24,8 +24,8 @@ export const TopFanSection = () => {
   const order = [1, 0, 2];
 
   return (
-    <section id="topfan" data-testid="topfan-section" className="relative overflow-hidden bg-[#0f0f12] py-24 sm:py-32">
-      <div className="pointer-events-none absolute left-1/2 top-10 h-[360px] w-[700px] -translate-x-1/2 rounded-full" style={{ background: "radial-gradient(circle, rgba(214,178,94,0.10), rgba(214,178,94,0) 70%)" }} />
+    <section id="topfan" data-testid="topfan-section" className="relative overflow-hidden bg-[#0f0f12] py-16 sm:py-24">
+      <div className="pointer-events-none absolute left-1/2 top-10 h-[360px] w-[700px] -translate-x-1/2 rounded-full" style={{ background: "radial-gradient(circle, rgba(0,175,240,0.10), rgba(0,175,240,0) 70%)" }} />
       <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
         <SectionHeader k="topfan"
           align="center"
@@ -42,7 +42,7 @@ export const TopFanSection = () => {
               <Trophy className="mx-auto h-10 w-10 text-[color:var(--gold)]" />
               <p className="mt-5 font-display text-3xl italic text-[#f5f2ee]"><E k="topfan.empty.t">Il trono è libero.</E></p>
               <p className="mt-2 text-sm text-[#b9b2aa]"><E k="topfan.empty.d" multiline>La classifica di questo mese è appena partita. Il primo posto può essere tuo.</E></p>
-              <button onClick={() => scrollToId("offerte")} data-testid="topfan-cta" className="btn-gold mt-6 rounded-xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em]">
+              <button onClick={() => goTo("offerte")} data-testid="topfan-cta" className="btn-gold mt-6 rounded-xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em]">
                 Conquista il #1
               </button>
             </div>

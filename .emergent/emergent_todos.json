@@ -1,34 +1,30 @@
 [
   {
-    "content": "Backend cassa: pricing.py + payments.py + server.py (ordini, settings, watcher, TON Connect) — COMPLETATO e smoke test PASS",
+    "content": "Backend cassa: pricing.py + payments.py + server.py — COMPLETATO e smoke test PASS",
     "status": "completed"
   },
   {
-    "content": "ATTESA ALLEGATI: foto nuove + immagine stile censura (partire appena arrivano)",
+    "content": "Palette oro → azzurro #00AFF0 + rosa; foto pixelate (3 varianti, originali non serviti); Home A/B + pagine separate; verifica screenshot",
+    "status": "completed"
+  },
+  {
+    "content": "Frontend cassa: lib/pay.js, Checkout (/cassa), Order (/ordine/:code) con TON Connect/QR/timeline/countdown/consegna",
     "status": "in_progress"
   },
   {
-    "content": "Palette: oro → azzurro #00AFF0, rosa cipria per scritte/badge (token CSS, componenti)",
+    "content": "Frontend admin: AdminNav, AdminOrders (/admin/ordini), AdminPayments (/admin/pagamenti), accepted_price in AdminRequests",
     "status": "pending"
   },
   {
-    "content": "Griglia foto censurate (stile dall'allegato) + componente CensoredPhoto",
-    "status": "pending"
-  },
-  {
-    "content": "Home Preview A (/?home=a o /preview-a): foto + piani, resto in pagine separate (/faq, /regole, /contatti, /come-funziona)",
-    "status": "pending"
-  },
-  {
-    "content": "Home Preview B: foto → piani/pacchetti → resto compatto",
-    "status": "pending"
-  },
-  {
-    "content": "Frontend cassa: /cassa, /ordine/:code, /admin/ordini, /admin/pagamenti, AccountSheet acquisti + Paga ora, CTA → cassa",
+    "content": "Integrazione: CTA con kind → /cassa, AccountSheet acquisti + Paga ora + export AuthForms, App routes, FAQ testi",
     "status": "pending"
   },
   {
     "content": "Build check, screenshot desktop+mobile, testing agent, fix",
+    "status": "pending"
+  },
+  {
+    "content": "Aggiornare plan.md, PRD.md e riepilogo finale (previews A/B + cassa)",
     "status": "pending"
   }
 ]

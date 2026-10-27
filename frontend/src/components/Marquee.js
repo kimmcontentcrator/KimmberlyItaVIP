@@ -6,7 +6,7 @@ const WORDS = ["Foto inedite", "Video privati", "Bundle esclusivi", "Cataloghi",
 export const Marquee = () => {
   const items = [...WORDS, ...WORDS];
   return (
-    <div data-testid="marquee-strip" className="relative overflow-hidden border-y border-[rgba(214,178,94,0.14)] bg-[#0f0f12] py-5">
+    <div data-testid="marquee-strip" className="relative overflow-hidden border-y border-[rgba(0,175,240,0.14)] bg-[#0f0f12] py-5">
       <div className="marquee-track">
         {items.map((w, i) => (
           <span key={i} className="flex items-center gap-6 px-6 font-display text-2xl italic text-[#f5f2ee]/90 sm:text-3xl">

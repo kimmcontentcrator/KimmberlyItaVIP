@@ -8,14 +8,14 @@ import { Label } from "./ui/label";
 import { Checkbox } from "./ui/checkbox";
 import { useFan, errMsg } from "../context/FanContext";
 import { LEVELS, fmtEur, BRAND } from "../config/site";
-import { scrollToId } from "../lib/scroll";
+import { goTo } from "../lib/scroll";
 import { EASE } from "./Reveal";
 
 const field = "h-12 rounded-[14px] border-[rgba(242,215,208,0.16)] bg-[#0b0b0d] text-[#f5f2ee] placeholder:text-[#6f6a64] focus-visible:ring-[color:var(--gold)]";
 
 const STATUS = {
   nuova: { l: "Ricevuta", c: "text-[color:var(--blush)] border-[rgba(242,215,208,0.3)]" },
-  in_lavorazione: { l: "In lavorazione", c: "text-[color:var(--gold-light)] border-[rgba(214,178,94,0.4)]" },
+  in_lavorazione: { l: "In lavorazione", c: "text-[color:var(--gold-light)] border-[rgba(0,175,240,0.4)]" },
   completata: { l: "Sbloccata", c: "text-[#9fe0b5] border-[rgba(159,224,181,0.35)]" },
   rifiutata: { l: "Non disponibile", c: "text-[#b9b2aa] border-[rgba(185,178,170,0.3)]" },
 };
@@ -35,7 +35,7 @@ const Ring = ({ pct }) => {
   const c = 2 * Math.PI * r;
   return (
     <svg width="84" height="84" viewBox="0 0 84 84" className="-rotate-90">
-      <circle cx="42" cy="42" r={r} stroke="rgba(214,178,94,0.15)" strokeWidth="5" fill="none" />
+      <circle cx="42" cy="42" r={r} stroke="rgba(0,175,240,0.15)" strokeWidth="5" fill="none" />
       <motion.circle
         cx="42" cy="42" r={r} stroke="url(#g)" strokeWidth="5" fill="none" strokeLinecap="round"
         strokeDasharray={c}
@@ -45,7 +45,7 @@ const Ring = ({ pct }) => {
       />
       <defs>
         <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#f1d998" />
+          <stop offset="0%" stopColor="#6ad7ff" />
           <stop offset="100%" stopColor="#e7b8c8" />
         </linearGradient>
       </defs>
@@ -84,7 +84,7 @@ const AuthForms = () => {
     <div>
       <div className="grid grid-cols-2 rounded-full border border-[rgba(242,215,208,0.16)] bg-[#0b0b0d] p-1" data-testid="auth-mode-switch">
         {[["register", "Nuovo accesso"], ["login", "Ho un codice"]].map(([k, l]) => (
-          <button key={k} type="button" data-testid={`auth-mode-${k}`} onClick={() => setMode(k)} className={`relative rounded-full py-2.5 text-[11px] uppercase tracking-[0.14em] ${mode === k ? "text-[#141014]" : "text-[#b9b2aa]"}`}>
+          <button key={k} type="button" data-testid={`auth-mode-${k}`} onClick={() => setMode(k)} className={`relative rounded-full py-2.5 text-[11px] uppercase tracking-[0.14em] ${mode === k ? "text-[#0b0b0d]" : "text-[#b9b2aa]"}`}>
             {mode === k && <motion.span layoutId="authpill" className="btn-gold absolute inset-0 rounded-full" />}
             <span className="relative z-10 font-semibold">{l}</span>
           </button>
@@ -119,7 +119,7 @@ const AuthForms = () => {
           </div>
           {mode === "register" && (
             <label className="flex cursor-pointer items-start gap-3">
-              <Checkbox data-testid="auth-adult-checkbox" checked={f.is_adult} onCheckedChange={(v) => setF({ ...f, is_adult: !!v })} className="mt-0.5 border-[color:var(--gold)] data-[state=checked]:bg-[color:var(--gold)] data-[state=checked]:text-[#141014]" />
+              <Checkbox data-testid="auth-adult-checkbox" checked={f.is_adult} onCheckedChange={(v) => setF({ ...f, is_adult: !!v })} className="mt-0.5 border-[color:var(--gold)] data-[state=checked]:bg-[color:var(--gold)] data-[state=checked]:text-[#0b0b0d]" />
               <span className="text-sm text-[#b9b2aa]">Ho almeno 18 anni</span>
             </label>
           )}
@@ -155,7 +155,7 @@ const Profile = ({ close }) => {
 
       <div className="mt-6 grid grid-cols-3 gap-2">
         {[["Ordini", orders.length], ["Sbloccati", unlocked.length], ["Totale", fmtEur(spent || 0)]].map(([k, v]) => (
-          <div key={k} className="rounded-2xl border border-[rgba(214,178,94,0.16)] bg-[#0b0b0d] px-3 py-3">
+          <div key={k} className="rounded-2xl border border-[rgba(0,175,240,0.16)] bg-[#0b0b0d] px-3 py-3">
             <div className="font-display text-xl tabular-nums text-[color:var(--gold-light)]">{v}</div>
             <div className="text-[10px] uppercase tracking-[0.18em] text-[#b9b2aa]">{k}</div>
           </div>
@@ -183,14 +183,14 @@ const Profile = ({ close }) => {
         {orders.length === 0 ? (
           <div className="mt-3">
             <p data-testid="fan-orders-empty" className="text-sm text-[#6f6a64]">Nessun ordine ancora.</p>
-            <button data-testid="fan-browse-offers" onClick={() => { close(); setTimeout(() => scrollToId("offerte"), 300); }} className="btn-ghost-lux mt-4 rounded-xl px-5 py-3 text-xs uppercase tracking-[0.14em]">Scopri le offerte</button>
+            <button data-testid="fan-browse-offers" onClick={() => { close(); setTimeout(() => goTo("offerte"), 300); }} className="btn-ghost-lux mt-4 rounded-xl px-5 py-3 text-xs uppercase tracking-[0.14em]">Scopri le offerte</button>
           </div>
         ) : (
           <ul className="mt-3 space-y-2" data-testid="fan-orders-list">
             {orders.map((o) => {
               const s = STATUS[o.status] || STATUS.nuova;
               return (
-                <li key={o.id} className="rounded-xl border border-[rgba(214,178,94,0.14)] bg-[#0b0b0d] px-4 py-3">
+                <li key={o.id} className="rounded-xl border border-[rgba(0,175,240,0.14)] bg-[#0b0b0d] px-4 py-3">
                   <div className="flex items-center justify-between gap-3">
                     <span className="text-sm text-[#f5f2ee]">{o.item || "Richiesta personalizzata"}</span>
                     <span className={`shrink-0 rounded-full border px-2.5 py-0.5 text-[10px] uppercase tracking-[0.14em] ${s.c}`}>{s.l}</span>
@@ -217,7 +217,7 @@ export const AccountSheet = () => {
   const { data, sheetOpen, setSheetOpen, token, loading } = useFan();
   return (
     <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-      <SheetContent side="right" data-testid="account-sheet" className="w-full overflow-y-auto border-l border-[rgba(214,178,94,0.18)] bg-[#0b0b0d] p-6 text-[#f5f2ee] sm:max-w-md" data-lenis-prevent>
+      <SheetContent side="right" data-testid="account-sheet" className="w-full overflow-y-auto border-l border-[rgba(0,175,240,0.18)] bg-[#0b0b0d] p-6 text-[#f5f2ee] sm:max-w-md" data-lenis-prevent>
         <SheetTitle className="text-gold-sheen font-display text-2xl italic">Il tuo spazio</SheetTitle>
         <SheetDescription className="text-xs uppercase tracking-[0.2em] text-[#6f6a64]">Profilo privato</SheetDescription>
         <div className="mt-8">

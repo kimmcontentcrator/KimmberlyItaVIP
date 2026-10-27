@@ -5,7 +5,7 @@ import { CATALOG, CATALOG_FILTERS } from "../config/site";
 import { SectionHeader, T } from "./SectionHeader";
 import { E, useEditable, toNum } from "../context/ContentContext";
 import { EASE } from "./Reveal";
-import { scrollToId } from "../lib/scroll";
+import { goTo } from "../lib/scroll";
 
 const ICON = { Foto: Camera, Video: Play, Bundle: Layers };
 
@@ -20,7 +20,7 @@ export const CatalogSection = ({ onRequest }) => {
   }, [filter]);
 
   return (
-    <section id="cataloghi" data-testid="catalog-section" className="relative py-24 sm:py-32">
+    <section id="cataloghi" data-testid="catalog-section" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader k="catalog"
           label="Cataloghi privati"
@@ -39,7 +39,7 @@ export const CatalogSection = ({ onRequest }) => {
                 data-testid={`catalog-filter-pill-${f.toLowerCase().replace("à", "a")}`}
                 onClick={() => setFilter(f)}
                 className={`relative shrink-0 rounded-full px-5 py-2.5 text-[12px] uppercase tracking-[0.16em] transition-colors duration-300 ${
-                  on ? "text-[#141014]" : "border border-[rgba(242,215,208,0.2)] bg-[#141418] text-[#b9b2aa] hover:text-[#f5f2ee]"
+                  on ? "text-[#0b0b0d]" : "border border-[rgba(242,215,208,0.2)] bg-[#141418] text-[#b9b2aa] hover:text-[#f5f2ee]"
                 }`}
               >
                 {on && <motion.span layoutId="pill" className="btn-gold absolute inset-0 rounded-full" transition={{ duration: 0.5, ease: EASE }} />}
@@ -88,7 +88,7 @@ export const CatalogSection = ({ onRequest }) => {
                   <div className="px-5 pb-5">
                     <button
                       data-testid={`catalog-request-${c.id}`}
-                      onClick={() => onRequest({ type: c.cat === "Video" ? "video" : c.cat === "Bundle" ? "bundle" : "foto", item: get(`catalog.${c.id}.title`, c.title), price: toNum(get(`catalog.${c.id}.price`, String(c.price)), c.price) })}
+                      onClick={() => onRequest({ type: c.cat === "Video" ? "video" : c.cat === "Bundle" ? "bundle" : "foto", item: get(`catalog.${c.id}.title`, c.title), price: toNum(get(`catalog.${c.id}.price`, String(c.price)), c.price), kind: "catalog", id: c.id })}
                       className="btn-ghost-lux flex w-full items-center justify-center gap-2 rounded-xl py-3 text-[12px] uppercase tracking-[0.16em]"
                     >
                       Richiedi <ArrowUpRight className="h-3.5 w-3.5" />
@@ -103,7 +103,7 @@ export const CatalogSection = ({ onRequest }) => {
         {items.length === 0 && (
           <div data-testid="catalog-empty-state" className="lux-card mt-8 p-10 text-center">
             <p className="font-display text-2xl italic text-[#f5f2ee]">Nulla qui, per ora.</p>
-            <button onClick={() => scrollToId("richieste")} className="btn-gold mt-5 rounded-xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em]">
+            <button onClick={() => goTo("richieste")} className="btn-gold mt-5 rounded-xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em]">
               Chiedimelo tu
             </button>
           </div>

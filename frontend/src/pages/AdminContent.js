@@ -69,7 +69,7 @@ export default function AdminContent() {
 
   return (
     <div className="min-h-screen bg-[#0b0b0d] text-[#f5f2ee]" data-testid="admin-content-page">
-      <header className="sticky top-0 z-30 border-b border-[rgba(214,178,94,0.14)] bg-[#0b0b0d]">
+      <header className="sticky top-0 z-30 border-b border-[rgba(0,175,240,0.14)] bg-[#0b0b0d]">
         <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-5">
           <Link to="/admin/requests" data-testid="admin-content-back" className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-[#b9b2aa] hover:text-[#f5f2ee]">
             <ArrowLeft className="h-3.5 w-3.5" /> Richieste

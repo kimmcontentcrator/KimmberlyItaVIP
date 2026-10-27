@@ -10,7 +10,7 @@ export const LockedPreviewGrid = ({ onRequest }) => {
   const [active, setActive] = useState(null);
 
   return (
-    <section id="esclusivi" data-testid="locked-preview-section" className="relative py-24 sm:py-32">
+    <section id="esclusivi" data-testid="locked-preview-section" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeader k="previews"
@@ -26,7 +26,7 @@ export const LockedPreviewGrid = ({ onRequest }) => {
               <button
                 data-testid="locked-preview-item"
                 onClick={() => setActive(p)}
-                className="group relative block aspect-[3/4] w-full overflow-hidden rounded-[22px] border border-[rgba(214,178,94,0.16)] text-left"
+                className="group relative block aspect-[3/4] w-full overflow-hidden rounded-[22px] border border-[rgba(0,175,240,0.16)] text-left"
               >
                 <img
                   src={p.img}
@@ -39,7 +39,7 @@ export const LockedPreviewGrid = ({ onRequest }) => {
                 <span className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-[#0b0b0d]/80 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-[color:var(--blush)] backdrop-blur">
                   {p.kind === "Video" ? <Play className="h-3 w-3" /> : <Camera className="h-3 w-3" />} {p.kind}
                 </span>
-                <span className="absolute right-3 top-3 rounded-full border border-[rgba(214,178,94,0.4)] bg-[#0b0b0d]/80 px-2.5 py-1 text-[10px] font-semibold tracking-[0.2em] text-[color:var(--gold)]">VIP</span>
+                <span className="absolute right-3 top-3 rounded-full border border-[rgba(0,175,240,0.4)] bg-[#0b0b0d]/80 px-2.5 py-1 text-[10px] font-semibold tracking-[0.2em] text-[color:var(--gold)]">VIP</span>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[rgba(242,215,208,0.35)] bg-[#0b0b0d]/70 backdrop-blur transition-[transform,border-color] duration-500 group-hover:scale-110 group-hover:border-[color:var(--gold)]">
                     <Lock className="h-5 w-5 text-[#f5f2ee]" />
@@ -56,7 +56,7 @@ export const LockedPreviewGrid = ({ onRequest }) => {
       </div>
 
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <DialogContent data-testid="locked-preview-dialog" className="max-w-md overflow-hidden rounded-[24px] border border-[rgba(214,178,94,0.22)] bg-[#111114] p-0 text-[#f5f2ee]">
+        <DialogContent data-testid="locked-preview-dialog" className="max-w-md overflow-hidden rounded-[24px] border border-[rgba(0,175,240,0.22)] bg-[#111114] p-0 text-[#f5f2ee]">
           {active && (
             <>
               <div className="relative aspect-[4/3] overflow-hidden">

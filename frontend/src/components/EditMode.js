@@ -36,7 +36,7 @@ export const EditMode = () => {
 
   return (
     <>
-      <div data-testid="edit-mode-bar" className="fixed left-1/2 top-[72px] z-[70] flex -translate-x-1/2 items-center gap-2 rounded-full border border-[rgba(214,178,94,0.5)] bg-[#141418] py-1.5 pl-4 pr-1.5 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+      <div data-testid="edit-mode-bar" className="fixed left-1/2 top-[72px] z-[70] flex -translate-x-1/2 items-center gap-2 rounded-full border border-[rgba(0,175,240,0.5)] bg-[#141418] py-1.5 pl-4 pr-1.5 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
         <PenLine className="h-3.5 w-3.5 text-[color:var(--gold)]" />
         <span className="whitespace-nowrap text-[11px] uppercase tracking-[0.14em] text-[#f5f2ee]">Modifica · tocca un testo</span>
         <Link to="/admin/contenuti" data-testid="edit-mode-settings" className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(242,215,208,0.25)] text-[#f5f2ee]" aria-label="Impostazioni">
@@ -48,7 +48,7 @@ export const EditMode = () => {
       </div>
 
       <Dialog open={!!target} onOpenChange={(o) => !o && setTarget(null)}>
-        <DialogContent data-testid="edit-dialog" className="max-w-lg rounded-[22px] border border-[rgba(214,178,94,0.25)] bg-[#111114] text-[#f5f2ee]">
+        <DialogContent data-testid="edit-dialog" className="max-w-lg rounded-[22px] border border-[rgba(0,175,240,0.25)] bg-[#111114] text-[#f5f2ee]">
           {target && (
             <>
               <DialogTitle className="font-display text-2xl font-normal italic">Modifica testo</DialogTitle>

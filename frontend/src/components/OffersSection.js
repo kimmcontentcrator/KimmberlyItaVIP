@@ -24,7 +24,7 @@ const useCountdown = (iso) => {
 
 const Digit = ({ v, label }) => (
   <div className="flex flex-col items-center">
-    <div className="relative h-14 w-14 overflow-hidden rounded-xl border border-[rgba(214,178,94,0.3)] bg-[#0b0b0d] sm:h-16 sm:w-16">
+    <div className="relative h-14 w-14 overflow-hidden rounded-xl border border-[rgba(0,175,240,0.3)] bg-[#0b0b0d] sm:h-16 sm:w-16">
       <AnimatePresence mode="popLayout">
         <motion.span
           key={v}
@@ -48,11 +48,11 @@ export const SpecialBundle = ({ onRequest }) => {
   const price = toNum(get("special.price", plain(SPECIAL.price)), SPECIAL.price);
   const name = get("special.name", SPECIAL.name);
   return (
-    <div data-testid="special-bundle-card" className="relative overflow-hidden rounded-[26px] border border-[rgba(231,184,200,0.35)] bg-gradient-to-br from-[#22161b] via-[#141418] to-[#1c170e] p-6 sm:p-8">
+    <div data-testid="special-bundle-card" className="relative overflow-hidden rounded-[26px] border border-[rgba(231,184,200,0.35)] bg-gradient-to-br from-[#22161b] via-[#141418] to-[#0b151c] p-6 sm:p-8">
       <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full" style={{ background: "radial-gradient(circle, rgba(231,184,200,0.25), rgba(231,184,200,0) 70%)" }} />
       <div className="relative grid gap-6 md:grid-cols-[1.2fr_1fr] md:items-center">
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-[color:var(--rose)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#141014]">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[color:var(--rose)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#0b0b0d]">
             <Flame className="h-3 w-3" /> <E k="special.badge">Offerta a tempo</E>
           </span>
           <h3 className="mt-4 font-display text-4xl italic text-[#f5f2ee]"><E k="special.name">{SPECIAL.name}</E></h3>
@@ -80,7 +80,7 @@ export const SpecialBundle = ({ onRequest }) => {
           <button
             data-testid="special-bundle-cta"
             disabled={c.done}
-            onClick={() => onRequest({ type: "bundle", item: name, price })}
+            onClick={() => onRequest({ type: "bundle", item: name, price, kind: "special", id: "bundle-speciale" })}
             className="btn-gold mt-5 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-semibold uppercase tracking-[0.14em] disabled:opacity-40"
           >
             <Timer className="h-4 w-4" /> <E k="special.cta">Prendilo ora</E>
@@ -101,7 +101,7 @@ const OfferCard = ({ o, onRequest }) => {
     <div
       className={`flex h-full flex-col rounded-[24px] p-6 ${
         o.featured
-          ? "border border-[rgba(214,178,94,0.55)] bg-gradient-to-b from-[#1f1a12] to-[#121214] shadow-[0_0_0_1px_rgba(214,178,94,0.18),0_30px_80px_rgba(214,178,94,0.10)]"
+          ? "border border-[rgba(0,175,240,0.55)] bg-gradient-to-b from-[#0e1a22] to-[#121214] shadow-[0_0_0_1px_rgba(0,175,240,0.18),0_30px_80px_rgba(0,175,240,0.10)]"
           : "lux-card"
       }`}
     >
@@ -117,11 +117,11 @@ const OfferCard = ({ o, onRequest }) => {
         <span className={`font-display text-4xl tabular-nums ${o.featured ? "text-gold-sheen" : "text-[#f5f2ee]"}`}>€<E k={`${pk}.price`}>{plain(o.price)}</E></span>
         {o.period !== "da" && <span className="text-xs uppercase tracking-[0.16em] text-[#b9b2aa]"><E k={`${pk}.period`}>{o.period}</E></span>}
       </div>
-      <div className="my-5 h-px bg-[rgba(214,178,94,0.14)]" />
+      <div className="my-5 h-px bg-[rgba(0,175,240,0.14)]" />
       <ul className="flex-1 space-y-2.5">
         {o.perks.map((p, i) => (
           <li key={p} className="flex items-start gap-2.5 text-sm text-[#e9e4de]">
-            <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[rgba(214,178,94,0.16)]">
+            <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[rgba(0,175,240,0.16)]">
               <Check className="h-2.5 w-2.5 text-[color:var(--gold)]" />
             </span>
             <E k={`${pk}.perk${i}`}>{p}</E>
@@ -130,10 +130,10 @@ const OfferCard = ({ o, onRequest }) => {
       </ul>
       <button
         data-testid={`offer-cta-${o.id}`}
-        onClick={() => onRequest({ type: o.cat, item: name, price })}
+        onClick={() => onRequest(o.period === "da" ? { type: o.cat, item: name, price } : { type: o.cat, item: name, price, kind: "offer", id: o.id })}
         className={`mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[12px] font-semibold uppercase tracking-[0.14em] ${o.featured ? "btn-gold" : "btn-ghost-lux"}`}
       >
-        <E k={`${pk}.cta`}>{o.cat === "abbonamento" ? "Entra nella Crew" : o.cat === "extra" ? "Richiedi" : "Sblocca ora"}</E> <ArrowUpRight className="h-3.5 w-3.5" />
+        <E k={`${pk}.cta`}>{o.period === "da" ? "Richiedi" : o.cat === "abbonamento" ? "Entra ora" : "Sblocca ora"}</E> <ArrowUpRight className="h-3.5 w-3.5" />
       </button>
     </div>
   </TiltCard>
@@ -153,7 +153,7 @@ const TipJar = ({ onRequest }) => (
         <button
           key={t}
           data-testid={`tip-${t}`}
-          onClick={() => onRequest({ type: "tip", item: `Tip ${fmtEur(t)}`, price: t })}
+          onClick={() => onRequest({ type: "tip", item: `Tip ${fmtEur(t)}`, price: t, kind: "tip", amount: t })}
           className="btn-ghost-lux rounded-2xl py-4 font-display text-2xl tabular-nums transition-colors hover:text-[color:var(--gold-light)]"
         >
           {t}€
@@ -184,13 +184,13 @@ export const OffersSection = ({ onRequest }) => {
   const cats = ["abbonamento", "pacchetto", "extra", "chat_tempo"];
 
   return (
-    <section id="offerte" data-testid="offers-section" className="relative overflow-hidden bg-[#0f0f12] py-24 sm:py-32">
+    <section id="offerte" data-testid="offers-section" className="relative overflow-hidden bg-[#0f0f12] py-16 sm:py-24">
       <div className="pointer-events-none absolute -right-40 top-20 h-[500px] w-[500px] rounded-full" style={{ background: "radial-gradient(circle, rgba(231,184,200,0.10), rgba(231,184,200,0) 65%)" }} />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader k="offers"
-          label="Offerte & abbonamenti"
-          title={<T k="offers" a="Scegli quanto" b="vicino" c="vuoi arrivare." br={false} />}
-          text="Abbonamenti, pacchetti one-shot, extra e chat privata. Scegli: ti porto alla richiesta già compilata. Prezzi di esempio modificabili."
+          label="Piani & pacchetti"
+          title={<T k="offers" a="Scegli." b="Paghi." c="Vedi." br={false} />}
+          text="Abbonamenti senza rinnovo automatico, pacchetti one-shot, extra e chat privata. Prezzo chiaro, sblocco appena confermo."
         />
 
         <div className="sticky top-16 z-20 -mx-5 mt-10 bg-[#0f0f12]/95 px-5 py-3 backdrop-blur sm:mx-0 sm:rounded-full sm:px-2">
@@ -205,7 +205,7 @@ export const OffersSection = ({ onRequest }) => {
                   data-testid={`offer-tab-${t.id}`}
                   onClick={() => setTab(t.id)}
                   className={`relative shrink-0 rounded-full px-5 py-2.5 text-[12px] uppercase tracking-[0.14em] transition-colors duration-300 ${
-                    on ? "text-[#141014]" : "border border-[rgba(242,215,208,0.2)] bg-[#141418] text-[#b9b2aa] hover:text-[#f5f2ee]"
+                    on ? "text-[#0b0b0d]" : "border border-[rgba(242,215,208,0.2)] bg-[#141418] text-[#b9b2aa] hover:text-[#f5f2ee]"
                   }`}
                 >
                   {on && <motion.span layoutId="offer-pill" className="btn-gold absolute inset-0 rounded-full" transition={{ duration: 0.5, ease: EASE }} />}

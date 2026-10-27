@@ -49,7 +49,7 @@ export const IntroGate = ({ onDone }) => {
       {/* glow orb */}
       <motion.div
         className="absolute h-[60vmax] w-[60vmax] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(214,178,94,0.22) 0%, rgba(231,184,200,0.10) 35%, rgba(7,7,8,0) 65%)" }}
+        style={{ background: "radial-gradient(circle, rgba(0,175,240,0.22) 0%, rgba(231,184,200,0.10) 35%, rgba(7,7,8,0) 65%)" }}
         initial={{ scale: 0.2, opacity: 0 }}
         animate={{ scale: [0.2, 1.1, 1], opacity: [0, 1, 0.85] }}
         transition={{ duration: 2.6, ease: EASE }}
@@ -113,10 +113,10 @@ export const IntroGate = ({ onDone }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, ease: EASE }}
-              className="mt-12 w-full rounded-[24px] border border-[rgba(214,178,94,0.22)] bg-[#111114] p-6 text-left shadow-[0_30px_80px_rgba(0,0,0,0.6)] sm:p-8"
+              className="mt-12 w-full rounded-[24px] border border-[rgba(0,175,240,0.22)] bg-[#111114] p-6 text-left shadow-[0_30px_80px_rgba(0,0,0,0.6)] sm:p-8"
             >
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(214,178,94,0.35)] text-[color:var(--gold)]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(0,175,240,0.35)] text-[color:var(--gold)]">
                   <span className="text-sm font-bold">18+</span>
                 </span>
                 <div>

@@ -41,12 +41,12 @@ export default function AdminLogin() {
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0b0b0d] px-5" data-testid="admin-login-page">
-      <div className="pointer-events-none absolute h-[500px] w-[500px] rounded-full" style={{ background: "radial-gradient(circle, rgba(214,178,94,0.14), rgba(214,178,94,0) 65%)" }} />
+      <div className="pointer-events-none absolute h-[500px] w-[500px] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,175,240,0.14), rgba(0,175,240,0) 65%)" }} />
       <form onSubmit={submit} className="lux-card relative w-full max-w-sm p-8">
         <Link to="/" data-testid="admin-back-home" className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-[#b9b2aa] hover:text-[#f5f2ee]">
           <ArrowLeft className="h-3.5 w-3.5" /> Torna al sito
         </Link>
-        <div className="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-[rgba(214,178,94,0.3)] bg-[#0b0b0d]">
+        <div className="mt-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-[rgba(0,175,240,0.3)] bg-[#0b0b0d]">
           <Lock className="h-5 w-5 text-[color:var(--gold)]" />
         </div>
         <h1 className="mt-6 font-display text-3xl italic text-[#f5f2ee]">Area riservata</h1>

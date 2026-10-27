@@ -20,6 +20,14 @@ export const CONTACTS = {
   telegramChannel: "",
 };
 
+// Foto in home: vengono mostrate SOLO le versioni pixelate pre-generate in /public/photos/pix/<set>-{a,b,c}.webp.
+// Gli originali NON sono nel sito pubblico (backend/private_media). Per aggiungere una foto: genera i 3 file pixelati e aggiungi una riga.
+export const GALLERY = [
+  { id: "g1", set: "set1", kind: "Foto", count: "24 scatti", title: "Notte in nero", badge: "Nuova" },
+  { id: "g2", set: "set2", kind: "Foto", count: "18 scatti", title: "Shorts & cap" },
+  { id: "g3", set: "set3", kind: "Foto", count: "30 scatti", title: "Mirror session", badge: "Top" },
+];
+
 export const PREVIEWS = [
   { id: "p1", img: PHOTOS.hero, kind: "Foto", title: "Mirror session", count: "24 scatti", pos: "40% 30%" },
   { id: "p2", img: PHOTOS.about, kind: "Video", title: "Backstage privato", count: "6 min", pos: "45% 35%" },
